@@ -48,7 +48,7 @@ Partial Class FormLogin
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(752, 472)
+        Me.Panel1.Size = New System.Drawing.Size(670, 374)
         Me.Panel1.TabIndex = 1
         '
         'pnlLogin
@@ -60,7 +60,7 @@ Partial Class FormLogin
         Me.pnlLogin.Controls.Add(Me.lblMdp)
         Me.pnlLogin.Controls.Add(Me.TextBox1)
         Me.pnlLogin.Controls.Add(Me.lblLogin)
-        Me.pnlLogin.Location = New System.Drawing.Point(393, 69)
+        Me.pnlLogin.Location = New System.Drawing.Point(328, 28)
         Me.pnlLogin.Name = "pnlLogin"
         Me.pnlLogin.Size = New System.Drawing.Size(314, 304)
         Me.pnlLogin.TabIndex = 4
@@ -134,7 +134,7 @@ Partial Class FormLogin
         Me.lblSlogan.AutoSize = True
         Me.lblSlogan.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSlogan.ForeColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(129, Byte), Integer))
-        Me.lblSlogan.Location = New System.Drawing.Point(53, 298)
+        Me.lblSlogan.Location = New System.Drawing.Point(11, 255)
         Me.lblSlogan.Name = "lblSlogan"
         Me.lblSlogan.Size = New System.Drawing.Size(266, 17)
         Me.lblSlogan.TabIndex = 3
@@ -146,7 +146,7 @@ Partial Class FormLogin
         Me.lblName.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblName.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(129, Byte), Integer))
-        Me.lblName.Location = New System.Drawing.Point(120, 262)
+        Me.lblName.Location = New System.Drawing.Point(88, 214)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(124, 32)
         Me.lblName.TabIndex = 2
@@ -156,9 +156,9 @@ Partial Class FormLogin
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.VetoGest.My.Resources.Resources.logo
-        Me.PictureBox1.Location = New System.Drawing.Point(93, 86)
+        Me.PictureBox1.Location = New System.Drawing.Point(79, 71)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(176, 160)
+        Me.PictureBox1.Size = New System.Drawing.Size(151, 131)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -167,8 +167,8 @@ Partial Class FormLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.VetoGest.My.Resources.Resources.login_bg
-        Me.ClientSize = New System.Drawing.Size(752, 472)
+        Me.BackgroundImage = Global.VetoGest.My.Resources.Resources.race_des_chiens_18942
+        Me.ClientSize = New System.Drawing.Size(670, 374)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FormLogin"
