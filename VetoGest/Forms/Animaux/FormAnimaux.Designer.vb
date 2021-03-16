@@ -22,6 +22,7 @@ Partial Class FormAnimaux
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -30,9 +31,14 @@ Partial Class FormAnimaux
         Me.btnNouveau = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ModifierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImprimerConsulationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -70,6 +76,7 @@ Partial Class FormAnimaux
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.DataGridView1.Location = New System.Drawing.Point(12, 114)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(726, 327)
@@ -126,6 +133,30 @@ Partial Class FormAnimaux
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModifierToolStripMenuItem, Me.SupprimerToolStripMenuItem, Me.ImprimerConsulationsToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(194, 70)
+        '
+        'ModifierToolStripMenuItem
+        '
+        Me.ModifierToolStripMenuItem.Name = "ModifierToolStripMenuItem"
+        Me.ModifierToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.ModifierToolStripMenuItem.Text = "Modifier"
+        '
+        'SupprimerToolStripMenuItem
+        '
+        Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
+        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.SupprimerToolStripMenuItem.Text = "Supprimer"
+        '
+        'ImprimerConsulationsToolStripMenuItem
+        '
+        Me.ImprimerConsulationsToolStripMenuItem.Name = "ImprimerConsulationsToolStripMenuItem"
+        Me.ImprimerConsulationsToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.ImprimerConsulationsToolStripMenuItem.Text = "Imprimer consulations"
+        '
         'FormAnimaux
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -143,6 +174,7 @@ Partial Class FormAnimaux
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -156,4 +188,8 @@ Partial Class FormAnimaux
     Friend WithEvents btnNouveau As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents ModifierToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SupprimerToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImprimerConsulationsToolStripMenuItem As ToolStripMenuItem
 End Class

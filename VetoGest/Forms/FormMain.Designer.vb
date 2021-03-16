@@ -24,12 +24,12 @@ Partial Class FormMain
     Private Sub InitializeComponent()
         Me.pnlContent = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnAnimaux = New System.Windows.Forms.Button()
+        Me.btnClients = New System.Windows.Forms.Button()
         Me.btnMed = New System.Windows.Forms.Button()
         Me.btnConsultation = New System.Windows.Forms.Button()
         Me.btnAccueil = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnClients = New System.Windows.Forms.Button()
-        Me.btnAnimaux = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -57,6 +57,46 @@ Partial Class FormMain
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(213, 542)
         Me.Panel1.TabIndex = 2
+        '
+        'btnAnimaux
+        '
+        Me.btnAnimaux.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAnimaux.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnAnimaux.FlatAppearance.BorderSize = 0
+        Me.btnAnimaux.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAnimaux.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAnimaux.Image = Global.VetoGest.My.Resources.Resources.dog_park_25px
+        Me.btnAnimaux.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAnimaux.Location = New System.Drawing.Point(0, 382)
+        Me.btnAnimaux.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAnimaux.Name = "btnAnimaux"
+        Me.btnAnimaux.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.btnAnimaux.Size = New System.Drawing.Size(213, 47)
+        Me.btnAnimaux.TabIndex = 6
+        Me.btnAnimaux.Text = "Animaux"
+        Me.btnAnimaux.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAnimaux.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnAnimaux.UseVisualStyleBackColor = True
+        '
+        'btnClients
+        '
+        Me.btnClients.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClients.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnClients.FlatAppearance.BorderSize = 0
+        Me.btnClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClients.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClients.Image = Global.VetoGest.My.Resources.Resources.dog_park_25px
+        Me.btnClients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnClients.Location = New System.Drawing.Point(0, 335)
+        Me.btnClients.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnClients.Name = "btnClients"
+        Me.btnClients.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+        Me.btnClients.Size = New System.Drawing.Size(213, 47)
+        Me.btnClients.TabIndex = 5
+        Me.btnClients.Text = "Clients"
+        Me.btnClients.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnClients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnClients.UseVisualStyleBackColor = True
         '
         'btnMed
         '
@@ -129,46 +169,6 @@ Partial Class FormMain
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        '
-        'btnClients
-        '
-        Me.btnClients.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClients.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnClients.FlatAppearance.BorderSize = 0
-        Me.btnClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClients.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClients.Image = Global.VetoGest.My.Resources.Resources.dog_park_25px
-        Me.btnClients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClients.Location = New System.Drawing.Point(0, 335)
-        Me.btnClients.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnClients.Name = "btnClients"
-        Me.btnClients.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.btnClients.Size = New System.Drawing.Size(213, 47)
-        Me.btnClients.TabIndex = 5
-        Me.btnClients.Text = "Clients"
-        Me.btnClients.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnClients.UseVisualStyleBackColor = True
-        '
-        'btnAnimaux
-        '
-        Me.btnAnimaux.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAnimaux.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnAnimaux.FlatAppearance.BorderSize = 0
-        Me.btnAnimaux.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAnimaux.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAnimaux.Image = Global.VetoGest.My.Resources.Resources.dog_park_25px
-        Me.btnAnimaux.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAnimaux.Location = New System.Drawing.Point(0, 382)
-        Me.btnAnimaux.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnAnimaux.Name = "btnAnimaux"
-        Me.btnAnimaux.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.btnAnimaux.Size = New System.Drawing.Size(213, 47)
-        Me.btnAnimaux.TabIndex = 6
-        Me.btnAnimaux.Text = "Animaux"
-        Me.btnAnimaux.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAnimaux.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnAnimaux.UseVisualStyleBackColor = True
         '
         'FormMain
         '

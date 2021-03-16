@@ -27,31 +27,31 @@ Partial Class FormClients
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dgvClients = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ModifierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnNouveau = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.IdClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CiviliteClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrenomClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdrClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TelClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bsClients = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ModifierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IdCltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CiviliteCltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomCltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrenomCltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AdrCltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TelCltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvClients, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsClients, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(620, 462)
+        Me.Button1.Location = New System.Drawing.Point(620, 434)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(118, 35)
         Me.Button1.TabIndex = 33
@@ -87,14 +87,34 @@ Partial Class FormClients
         Me.dgvClients.AutoGenerateColumns = False
         Me.dgvClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClients.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdCltDataGridViewTextBoxColumn, Me.CiviliteCltDataGridViewTextBoxColumn, Me.NomCltDataGridViewTextBoxColumn, Me.PrenomCltDataGridViewTextBoxColumn, Me.AdrCltDataGridViewTextBoxColumn, Me.TelCltDataGridViewTextBoxColumn})
+        Me.dgvClients.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdClt, Me.CiviliteClt, Me.NomClt, Me.PrenomClt, Me.AdrClt, Me.TelClt})
         Me.dgvClients.ContextMenuStrip = Me.ContextMenuStrip
         Me.dgvClients.DataSource = Me.bsClients
         Me.dgvClients.Location = New System.Drawing.Point(12, 123)
+        Me.dgvClients.MultiSelect = False
         Me.dgvClients.Name = "dgvClients"
         Me.dgvClients.ReadOnly = True
-        Me.dgvClients.Size = New System.Drawing.Size(726, 327)
+        Me.dgvClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvClients.Size = New System.Drawing.Size(726, 290)
         Me.dgvClients.TabIndex = 30
+        '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModifierToolStripMenuItem, Me.SupprimerToolStripMenuItem})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(181, 70)
+        '
+        'ModifierToolStripMenuItem
+        '
+        Me.ModifierToolStripMenuItem.Name = "ModifierToolStripMenuItem"
+        Me.ModifierToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ModifierToolStripMenuItem.Text = "Modifier"
+        '
+        'SupprimerToolStripMenuItem
+        '
+        Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
+        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SupprimerToolStripMenuItem.Text = "Supprimer"
         '
         'Panel1
         '
@@ -147,70 +167,52 @@ Partial Class FormClients
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'IdClt
+        '
+        Me.IdClt.DataPropertyName = "IdClt"
+        Me.IdClt.HeaderText = "IdClt"
+        Me.IdClt.Name = "IdClt"
+        Me.IdClt.ReadOnly = True
+        Me.IdClt.Visible = False
+        '
+        'CiviliteClt
+        '
+        Me.CiviliteClt.DataPropertyName = "CiviliteClt"
+        Me.CiviliteClt.HeaderText = "Civilité"
+        Me.CiviliteClt.Name = "CiviliteClt"
+        Me.CiviliteClt.ReadOnly = True
+        '
+        'NomClt
+        '
+        Me.NomClt.DataPropertyName = "NomClt"
+        Me.NomClt.HeaderText = "Nom"
+        Me.NomClt.Name = "NomClt"
+        Me.NomClt.ReadOnly = True
+        '
+        'PrenomClt
+        '
+        Me.PrenomClt.DataPropertyName = "PrenomClt"
+        Me.PrenomClt.HeaderText = "Prénom"
+        Me.PrenomClt.Name = "PrenomClt"
+        Me.PrenomClt.ReadOnly = True
+        '
+        'AdrClt
+        '
+        Me.AdrClt.DataPropertyName = "AdrClt"
+        Me.AdrClt.HeaderText = "Adresse"
+        Me.AdrClt.Name = "AdrClt"
+        Me.AdrClt.ReadOnly = True
+        '
+        'TelClt
+        '
+        Me.TelClt.DataPropertyName = "TelClt"
+        Me.TelClt.HeaderText = "Téléphone"
+        Me.TelClt.Name = "TelClt"
+        Me.TelClt.ReadOnly = True
+        '
         'bsClients
         '
         Me.bsClients.DataSource = GetType(VetoGest.Data.Models.Client)
-        '
-        'ContextMenuStrip
-        '
-        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModifierToolStripMenuItem, Me.SupprimerToolStripMenuItem})
-        Me.ContextMenuStrip.Name = "ContextMenuStrip"
-        Me.ContextMenuStrip.Size = New System.Drawing.Size(130, 48)
-        '
-        'ModifierToolStripMenuItem
-        '
-        Me.ModifierToolStripMenuItem.Name = "ModifierToolStripMenuItem"
-        Me.ModifierToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
-        Me.ModifierToolStripMenuItem.Text = "Modifier"
-        '
-        'SupprimerToolStripMenuItem
-        '
-        Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
-        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
-        Me.SupprimerToolStripMenuItem.Text = "Supprimer"
-        '
-        'IdCltDataGridViewTextBoxColumn
-        '
-        Me.IdCltDataGridViewTextBoxColumn.DataPropertyName = "IdClt"
-        Me.IdCltDataGridViewTextBoxColumn.HeaderText = "IdClt"
-        Me.IdCltDataGridViewTextBoxColumn.Name = "IdCltDataGridViewTextBoxColumn"
-        Me.IdCltDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdCltDataGridViewTextBoxColumn.Visible = False
-        '
-        'CiviliteCltDataGridViewTextBoxColumn
-        '
-        Me.CiviliteCltDataGridViewTextBoxColumn.DataPropertyName = "CiviliteClt"
-        Me.CiviliteCltDataGridViewTextBoxColumn.HeaderText = "Civilité"
-        Me.CiviliteCltDataGridViewTextBoxColumn.Name = "CiviliteCltDataGridViewTextBoxColumn"
-        Me.CiviliteCltDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'NomCltDataGridViewTextBoxColumn
-        '
-        Me.NomCltDataGridViewTextBoxColumn.DataPropertyName = "NomClt"
-        Me.NomCltDataGridViewTextBoxColumn.HeaderText = "Nom"
-        Me.NomCltDataGridViewTextBoxColumn.Name = "NomCltDataGridViewTextBoxColumn"
-        Me.NomCltDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'PrenomCltDataGridViewTextBoxColumn
-        '
-        Me.PrenomCltDataGridViewTextBoxColumn.DataPropertyName = "PrenomClt"
-        Me.PrenomCltDataGridViewTextBoxColumn.HeaderText = "Prénom"
-        Me.PrenomCltDataGridViewTextBoxColumn.Name = "PrenomCltDataGridViewTextBoxColumn"
-        Me.PrenomCltDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AdrCltDataGridViewTextBoxColumn
-        '
-        Me.AdrCltDataGridViewTextBoxColumn.DataPropertyName = "AdrClt"
-        Me.AdrCltDataGridViewTextBoxColumn.HeaderText = "Adresse"
-        Me.AdrCltDataGridViewTextBoxColumn.Name = "AdrCltDataGridViewTextBoxColumn"
-        Me.AdrCltDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TelCltDataGridViewTextBoxColumn
-        '
-        Me.TelCltDataGridViewTextBoxColumn.DataPropertyName = "TelClt"
-        Me.TelCltDataGridViewTextBoxColumn.HeaderText = "Numéro de Téléphone"
-        Me.TelCltDataGridViewTextBoxColumn.Name = "TelCltDataGridViewTextBoxColumn"
-        Me.TelCltDataGridViewTextBoxColumn.ReadOnly = True
         '
         'FormClients
         '
@@ -226,11 +228,11 @@ Partial Class FormClients
         Me.Name = "FormClients"
         Me.Text = "FormClients"
         CType(Me.dgvClients, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsClients, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -248,10 +250,10 @@ Partial Class FormClients
     Friend WithEvents ContextMenuStrip As ContextMenuStrip
     Friend WithEvents ModifierToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SupprimerToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents IdCltDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CiviliteCltDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NomCltDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PrenomCltDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AdrCltDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TelCltDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IdClt As DataGridViewTextBoxColumn
+    Friend WithEvents CiviliteClt As DataGridViewTextBoxColumn
+    Friend WithEvents NomClt As DataGridViewTextBoxColumn
+    Friend WithEvents PrenomClt As DataGridViewTextBoxColumn
+    Friend WithEvents AdrClt As DataGridViewTextBoxColumn
+    Friend WithEvents TelClt As DataGridViewTextBoxColumn
 End Class

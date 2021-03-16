@@ -29,4 +29,8 @@
     Private Sub btnClients_Click(sender As Object, e As EventArgs) Handles btnClients.Click
         AddToPanel(FormClients)
     End Sub
+
+    Private Sub btnAnimaux_Click_1(sender As Object, e As EventArgs) Handles btnAnimaux.Click
+        AddToPanel(FormAnimaux)
+    End Sub
 End Class

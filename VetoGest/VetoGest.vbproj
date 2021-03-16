@@ -48,6 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -74,6 +77,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Animaux\FormAddAnimaux.Designer.vb">
+      <DependentUpon>FormAddAnimaux.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Animaux\FormAddAnimaux.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Animaux\FormAnimaux.Designer.vb">
       <DependentUpon>FormAnimaux.vb</DependentUpon>
     </Compile>
@@ -139,6 +148,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Animaux\FormAddAnimaux.resx">
+      <DependentUpon>FormAddAnimaux.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Animaux\FormAnimaux.resx">
       <DependentUpon>FormAnimaux.vb</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +196,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\dog_park_white_50px.png" />
   </ItemGroup>
   <ItemGroup>
