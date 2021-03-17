@@ -1,7 +1,7 @@
 ﻿Imports System.Configuration
 Imports System.Data.SqlClient
 
-Module Db
+Public Module Db
 
     Public ReadOnly Property GetConnection As SqlConnection
         Get

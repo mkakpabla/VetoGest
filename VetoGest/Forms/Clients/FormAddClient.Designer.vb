@@ -37,10 +37,12 @@ Partial Class FormAddClient
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ClientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.bsClient = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsClient, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -54,7 +56,7 @@ Partial Class FormAddClient
         '
         'txtNom
         '
-        Me.txtNom.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientBindingSource, "NomClt", True))
+        Me.txtNom.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsClient, "NomClt", True))
         Me.txtNom.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNom.Location = New System.Drawing.Point(76, 82)
         Me.txtNom.Name = "txtNom"
@@ -63,7 +65,7 @@ Partial Class FormAddClient
         '
         'txtPrenom
         '
-        Me.txtPrenom.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientBindingSource, "PrenomClt", True))
+        Me.txtPrenom.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsClient, "PrenomClt", True))
         Me.txtPrenom.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPrenom.Location = New System.Drawing.Point(388, 82)
         Me.txtPrenom.Name = "txtPrenom"
@@ -81,7 +83,7 @@ Partial Class FormAddClient
         '
         'txtTel
         '
-        Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientBindingSource, "TelClt", True))
+        Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsClient, "TelClt", True))
         Me.txtTel.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTel.Location = New System.Drawing.Point(76, 123)
         Me.txtTel.Name = "txtTel"
@@ -108,7 +110,7 @@ Partial Class FormAddClient
         '
         'txtAdr
         '
-        Me.txtAdr.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientBindingSource, "AdrClt", True))
+        Me.txtAdr.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsClient, "AdrClt", True))
         Me.txtAdr.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAdr.Location = New System.Drawing.Point(76, 168)
         Me.txtAdr.Multiline = True
@@ -127,7 +129,7 @@ Partial Class FormAddClient
         '
         'cbxCivilite
         '
-        Me.cbxCivilite.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientBindingSource, "CiviliteClt", True))
+        Me.cbxCivilite.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsClient, "CiviliteClt", True))
         Me.cbxCivilite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxCivilite.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbxCivilite.FormattingEnabled = True
@@ -180,9 +182,14 @@ Partial Class FormAddClient
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'ClientBindingSource
+        'ErrorProvider
         '
-        Me.ClientBindingSource.DataSource = GetType(VetoGest.Data.Models.Client)
+        Me.ErrorProvider.ContainerControl = Me
+        Me.ErrorProvider.DataSource = Me.bsClient
+        '
+        'bsClient
+        '
+        Me.bsClient.DataSource = GetType(VetoGest.Data.Models.Client)
         '
         'FormAddClient
         '
@@ -210,7 +217,8 @@ Partial Class FormAddClient
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClientBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsClient, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -230,5 +238,6 @@ Partial Class FormAddClient
     Friend WithEvents Panel1 As Panel
     Friend WithEvents lblTitle As Label
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents ClientBindingSource As BindingSource
+    Friend WithEvents bsClient As BindingSource
+    Friend WithEvents ErrorProvider As ErrorProvider
 End Class

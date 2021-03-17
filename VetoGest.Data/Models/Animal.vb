@@ -1,4 +1,6 @@
-﻿Namespace Models
+﻿
+
+Namespace Models
     Public Class Animal
 
         Public Property IdAml As Integer
