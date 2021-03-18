@@ -11,7 +11,7 @@ Public Class FormClients
 
 
     Private Sub LoadData()
-        bsClients.DataSource = clientRepository.GetAll
+        dgvClients.DataSource = clientRepository.GetAll
     End Sub
 
     Private Sub btnNouveau_Click(sender As Object, e As EventArgs) Handles btnNouveau.Click

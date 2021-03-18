@@ -89,6 +89,12 @@
     <Compile Include="Forms\Animaux\FormAnimaux.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Animaux\FormEspece.Designer.vb">
+      <DependentUpon>FormEspece.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Animaux\FormEspece.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Clients\FormAddClient.Designer.vb">
       <DependentUpon>FormAddClient.vb</DependentUpon>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Animaux\FormAnimaux.resx">
       <DependentUpon>FormAnimaux.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Animaux\FormEspece.resx">
+      <DependentUpon>FormEspece.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clients\FormAddClient.resx">
       <DependentUpon>FormAddClient.vb</DependentUpon>

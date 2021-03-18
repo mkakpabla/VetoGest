@@ -46,7 +46,13 @@ Namespace Repositories
         End Function
 
         Public Function Delete(Id As Integer) As Integer Implements IReposiory(Of Espece).Delete
-            Throw New NotImplementedException()
+            Try
+                Using Connection = GetConnection
+                    Return Connection.Execute("UPDATE Especes SET LibEsp = @LibEsp WHERE IdEsp = @IdEsp") > 0
+                End Using
+            Catch ex As Exception
+                Return Nothing
+            End Try
         End Function
     End Class
 End Namespace

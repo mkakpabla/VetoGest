@@ -25,6 +25,7 @@ Partial Class FormAddClient
         Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtNom = New System.Windows.Forms.TextBox()
+        Me.bsClient = New System.Windows.Forms.BindingSource(Me.components)
         Me.txtPrenom = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtTel = New System.Windows.Forms.TextBox()
@@ -38,11 +39,10 @@ Partial Class FormAddClient
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.bsClient = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.bsClient, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.bsClient, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -62,6 +62,10 @@ Partial Class FormAddClient
         Me.txtNom.Name = "txtNom"
         Me.txtNom.Size = New System.Drawing.Size(225, 23)
         Me.txtNom.TabIndex = 1
+        '
+        'bsClient
+        '
+        Me.bsClient.DataSource = GetType(VetoGest.Data.Models.Client)
         '
         'txtPrenom
         '
@@ -187,10 +191,6 @@ Partial Class FormAddClient
         Me.ErrorProvider.ContainerControl = Me
         Me.ErrorProvider.DataSource = Me.bsClient
         '
-        'bsClient
-        '
-        Me.bsClient.DataSource = GetType(VetoGest.Data.Models.Client)
-        '
         'FormAddClient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -214,11 +214,11 @@ Partial Class FormAddClient
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ajouter un client"
+        CType(Me.bsClient, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.bsClient, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel.DataAnnotations
+Imports VetoGest.Data.Rules
 
 Namespace Models
     Public Class Client
@@ -19,6 +20,7 @@ Namespace Models
         <MaxLength(8, ErrorMessage:="La taille maximale du numéro de téléphone doit être 8")>
         <MinLength(8, ErrorMessage:="La taille minimale du numéro de téléphone doit être 8")>
         <Phone(ErrorMessage:="Le numéro de téléphne n'est pas valide")>
+        <Unique(ColumnName:="TelClt", TableName:="Clients", AdditionalFields:="IdClt", ErrorMessage:="Le téléphone doit être unique")>
         Public Property TelClt As String
 
         <Required(ErrorMessage:="La civilité du client est obligatoire")>

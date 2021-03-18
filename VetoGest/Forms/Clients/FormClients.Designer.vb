@@ -86,6 +86,7 @@ Partial Class FormClients
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvClients.AutoGenerateColumns = False
         Me.dgvClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvClients.CausesValidation = False
         Me.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvClients.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdClt, Me.CiviliteClt, Me.NomClt, Me.PrenomClt, Me.AdrClt, Me.TelClt})
         Me.dgvClients.ContextMenuStrip = Me.ContextMenuStrip
@@ -95,6 +96,8 @@ Partial Class FormClients
         Me.dgvClients.Name = "dgvClients"
         Me.dgvClients.ReadOnly = True
         Me.dgvClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvClients.ShowCellErrors = False
+        Me.dgvClients.ShowRowErrors = False
         Me.dgvClients.Size = New System.Drawing.Size(726, 290)
         Me.dgvClients.TabIndex = 30
         '
@@ -102,18 +105,18 @@ Partial Class FormClients
         '
         Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModifierToolStripMenuItem, Me.SupprimerToolStripMenuItem})
         Me.ContextMenuStrip.Name = "ContextMenuStrip"
-        Me.ContextMenuStrip.Size = New System.Drawing.Size(181, 70)
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(130, 48)
         '
         'ModifierToolStripMenuItem
         '
         Me.ModifierToolStripMenuItem.Name = "ModifierToolStripMenuItem"
-        Me.ModifierToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ModifierToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.ModifierToolStripMenuItem.Text = "Modifier"
         '
         'SupprimerToolStripMenuItem
         '
         Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
-        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.SupprimerToolStripMenuItem.Text = "Supprimer"
         '
         'Panel1
@@ -212,6 +215,7 @@ Partial Class FormClients
         '
         'bsClients
         '
+        Me.bsClients.AllowNew = True
         Me.bsClients.DataSource = GetType(VetoGest.Data.Models.Client)
         '
         'FormClients

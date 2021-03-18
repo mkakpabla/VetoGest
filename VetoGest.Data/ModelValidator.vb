@@ -8,9 +8,11 @@ Public Class ModelValidator
     Default Public ReadOnly Property Item(columnName As String) As String Implements IDataErrorInfo.Item
         Get
             Dim propertyDescriptor As PropertyDescriptor = TypeDescriptor.GetProperties(Me)(columnName)
+
             If propertyDescriptor Is Nothing Then
                 Return String.Empty
             End If
+
             Dim Results As List(Of ValidationResult) = New List(Of ValidationResult)
             Dim Result As Boolean = Validator.TryValidateProperty(propertyDescriptor.GetValue(Me),
                                           New ValidationContext(Me, Nothing, Nothing) With {.MemberName = columnName},
