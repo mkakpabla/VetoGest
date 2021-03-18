@@ -48,9 +48,10 @@ Namespace Repositories
         Public Function Delete(Id As Integer) As Integer Implements IReposiory(Of Espece).Delete
             Try
                 Using Connection = GetConnection
-                    Return Connection.Execute("UPDATE Especes SET LibEsp = @LibEsp WHERE IdEsp = @IdEsp") > 0
+                    Return Connection.Execute($"DELETE FROM Especes WHERE IdEsp = {Id}") > 0
                 End Using
             Catch ex As Exception
+                Console.WriteLine(ex.Message)
                 Return Nothing
             End Try
         End Function

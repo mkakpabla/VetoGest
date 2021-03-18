@@ -27,18 +27,19 @@ Partial Class FormAnimaux
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnNouveau = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ModifierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimerConsulationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnNouveau = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnEsp = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -82,9 +83,34 @@ Partial Class FormAnimaux
         Me.DataGridView1.Size = New System.Drawing.Size(726, 327)
         Me.DataGridView1.TabIndex = 20
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModifierToolStripMenuItem, Me.SupprimerToolStripMenuItem, Me.ImprimerConsulationsToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(194, 70)
+        '
+        'ModifierToolStripMenuItem
+        '
+        Me.ModifierToolStripMenuItem.Name = "ModifierToolStripMenuItem"
+        Me.ModifierToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.ModifierToolStripMenuItem.Text = "Modifier"
+        '
+        'SupprimerToolStripMenuItem
+        '
+        Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
+        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.SupprimerToolStripMenuItem.Text = "Supprimer"
+        '
+        'ImprimerConsulationsToolStripMenuItem
+        '
+        Me.ImprimerConsulationsToolStripMenuItem.Name = "ImprimerConsulationsToolStripMenuItem"
+        Me.ImprimerConsulationsToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.ImprimerConsulationsToolStripMenuItem.Text = "Imprimer consulations"
+        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(129, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.btnEsp)
         Me.Panel1.Controls.Add(Me.btnNouveau)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
@@ -133,29 +159,22 @@ Partial Class FormAnimaux
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'ContextMenuStrip1
+        'btnEsp
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModifierToolStripMenuItem, Me.SupprimerToolStripMenuItem, Me.ImprimerConsulationsToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(194, 70)
-        '
-        'ModifierToolStripMenuItem
-        '
-        Me.ModifierToolStripMenuItem.Name = "ModifierToolStripMenuItem"
-        Me.ModifierToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.ModifierToolStripMenuItem.Text = "Modifier"
-        '
-        'SupprimerToolStripMenuItem
-        '
-        Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
-        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.SupprimerToolStripMenuItem.Text = "Supprimer"
-        '
-        'ImprimerConsulationsToolStripMenuItem
-        '
-        Me.ImprimerConsulationsToolStripMenuItem.Name = "ImprimerConsulationsToolStripMenuItem"
-        Me.ImprimerConsulationsToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.ImprimerConsulationsToolStripMenuItem.Text = "Imprimer consulations"
+        Me.btnEsp.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnEsp.BackColor = System.Drawing.Color.Black
+        Me.btnEsp.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEsp.FlatAppearance.BorderSize = 0
+        Me.btnEsp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEsp.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEsp.ForeColor = System.Drawing.Color.White
+        Me.btnEsp.Location = New System.Drawing.Point(538, 12)
+        Me.btnEsp.Name = "btnEsp"
+        Me.btnEsp.Size = New System.Drawing.Size(97, 33)
+        Me.btnEsp.TabIndex = 4
+        Me.btnEsp.Text = "  ESPECES"
+        Me.btnEsp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnEsp.UseVisualStyleBackColor = False
         '
         'FormAnimaux
         '
@@ -171,10 +190,10 @@ Partial Class FormAnimaux
         Me.Name = "FormAnimaux"
         Me.Text = "FormAnimaux"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -192,4 +211,5 @@ Partial Class FormAnimaux
     Friend WithEvents ModifierToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SupprimerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImprimerConsulationsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnEsp As Button
 End Class

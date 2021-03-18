@@ -22,17 +22,23 @@ Partial Class FormEspece
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.txtLib = New System.Windows.Forms.TextBox()
+        Me.bsEspece = New System.Windows.Forms.BindingSource(Me.components)
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvEsp = New System.Windows.Forms.DataGridView()
         Me.btnNouveau = New System.Windows.Forms.Button()
+        Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.LibEspDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsEspece, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvEsp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -70,16 +76,22 @@ Partial Class FormEspece
         '
         'txtLib
         '
+        Me.txtLib.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsEspece, "LibEsp", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.txtLib.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLib.Location = New System.Drawing.Point(12, 71)
         Me.txtLib.Name = "txtLib"
-        Me.txtLib.Size = New System.Drawing.Size(272, 20)
+        Me.txtLib.Size = New System.Drawing.Size(249, 23)
         Me.txtLib.TabIndex = 32
+        '
+        'bsEspece
+        '
+        Me.bsEspece.DataSource = GetType(VetoGest.Data.Models.Espece)
         '
         'btnSave
         '
         Me.btnSave.Location = New System.Drawing.Point(290, 69)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 23)
+        Me.btnSave.Size = New System.Drawing.Size(75, 25)
         Me.btnSave.TabIndex = 33
         Me.btnSave.Text = "Enregistrer"
         Me.btnSave.UseVisualStyleBackColor = True
@@ -88,18 +100,26 @@ Partial Class FormEspece
         '
         Me.btnDelete.Location = New System.Drawing.Point(371, 69)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelete.Size = New System.Drawing.Size(75, 25)
         Me.btnDelete.TabIndex = 34
         Me.btnDelete.Text = "Supprimer"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'dgvEsp
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 97)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(434, 232)
-        Me.DataGridView1.TabIndex = 35
+        Me.dgvEsp.AllowUserToAddRows = False
+        Me.dgvEsp.AllowUserToDeleteRows = False
+        Me.dgvEsp.AutoGenerateColumns = False
+        Me.dgvEsp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvEsp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvEsp.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LibEspDataGridViewTextBoxColumn})
+        Me.dgvEsp.DataSource = Me.bsEspece
+        Me.dgvEsp.Location = New System.Drawing.Point(12, 100)
+        Me.dgvEsp.MultiSelect = False
+        Me.dgvEsp.Name = "dgvEsp"
+        Me.dgvEsp.ReadOnly = True
+        Me.dgvEsp.Size = New System.Drawing.Size(434, 229)
+        Me.dgvEsp.TabIndex = 35
         '
         'btnNouveau
         '
@@ -110,13 +130,25 @@ Partial Class FormEspece
         Me.btnNouveau.Text = "Nouveau"
         Me.btnNouveau.UseVisualStyleBackColor = True
         '
+        'ErrorProvider
+        '
+        Me.ErrorProvider.ContainerControl = Me
+        Me.ErrorProvider.DataSource = Me.bsEspece
+        '
+        'LibEspDataGridViewTextBoxColumn
+        '
+        Me.LibEspDataGridViewTextBoxColumn.DataPropertyName = "LibEsp"
+        Me.LibEspDataGridViewTextBoxColumn.HeaderText = "Libellé"
+        Me.LibEspDataGridViewTextBoxColumn.Name = "LibEspDataGridViewTextBoxColumn"
+        Me.LibEspDataGridViewTextBoxColumn.ReadOnly = True
+        '
         'FormEspece
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(459, 373)
         Me.Controls.Add(Me.btnNouveau)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvEsp)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtLib)
@@ -130,7 +162,9 @@ Partial Class FormEspece
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsEspece, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvEsp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -142,6 +176,9 @@ Partial Class FormEspece
     Friend WithEvents txtLib As TextBox
     Friend WithEvents btnSave As Button
     Friend WithEvents btnDelete As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvEsp As DataGridView
     Friend WithEvents btnNouveau As Button
+    Friend WithEvents bsEspece As BindingSource
+    Friend WithEvents ErrorProvider As ErrorProvider
+    Friend WithEvents LibEspDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
