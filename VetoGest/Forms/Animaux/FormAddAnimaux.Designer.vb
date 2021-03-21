@@ -22,6 +22,7 @@ Partial Class FormAddAnimaux
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -40,8 +41,14 @@ Partial Class FormAddAnimaux
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.bsClients = New System.Windows.Forms.BindingSource(Me.components)
+        Me.bsEspece = New System.Windows.Forms.BindingSource(Me.components)
+        Me.bsAnimal = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsEspece, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -88,6 +95,9 @@ Partial Class FormAddAnimaux
         '
         'ComboBox1
         '
+        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.bsEspece, "IdEsp", True))
+        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.bsEspece, "IdEsp", True))
+        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsEspece, "LibEsp", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
@@ -186,6 +196,7 @@ Partial Class FormAddAnimaux
         '
         'ComboBox2
         '
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(117, 81)
@@ -212,6 +223,10 @@ Partial Class FormAddAnimaux
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(225, 24)
         Me.ComboBox3.TabIndex = 52
+        '
+        'bsEspece
+        '
+        Me.bsEspece.DataSource = GetType(VetoGest.Data.Models.Espece)
         '
         'FormAddAnimaux
         '
@@ -243,6 +258,9 @@ Partial Class FormAddAnimaux
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsEspece, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -266,4 +284,7 @@ Partial Class FormAddAnimaux
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents bsEspece As BindingSource
+    Friend WithEvents bsClients As BindingSource
+    Friend WithEvents bsAnimal As BindingSource
 End Class

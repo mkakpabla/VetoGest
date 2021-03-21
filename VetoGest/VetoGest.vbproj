@@ -52,6 +52,7 @@
       <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -77,6 +78,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Agents\FormAddAgent.Designer.vb">
+      <DependentUpon>FormAddAgent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Agents\FormAddAgent.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Animaux\FormAddAnimaux.Designer.vb">
       <DependentUpon>FormAddAnimaux.vb</DependentUpon>
     </Compile>
@@ -131,10 +138,10 @@
     <Compile Include="Forms\FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Medecins\FormMedecins.Designer.vb">
-      <DependentUpon>FormMedecins.vb</DependentUpon>
+    <Compile Include="Forms\Agents\FormAgent.Designer.vb">
+      <DependentUpon>FormAgent.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Medecins\FormMedecins.vb">
+    <Compile Include="Forms\Agents\FormAgent.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -154,6 +161,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Agents\FormAddAgent.resx">
+      <DependentUpon>FormAddAgent.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Animaux\FormAddAnimaux.resx">
       <DependentUpon>FormAddAnimaux.vb</DependentUpon>
     </EmbeddedResource>
@@ -181,8 +191,8 @@
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Medecins\FormMedecins.resx">
-      <DependentUpon>FormMedecins.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Agents\FormAgent.resx">
+      <DependentUpon>FormAgent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -196,6 +206,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\VetoGest.Data.Models.Agent.datasource" />
     <None Include="My Project\DataSources\VetoGest.Data.Models.Client.datasource" />
     <None Include="My Project\DataSources\VetoGest.Data.Models.Espece.datasource" />
     <None Include="My Project\Settings.settings">

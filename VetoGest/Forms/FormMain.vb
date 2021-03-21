@@ -11,7 +11,7 @@
     End Sub
 
     Private Sub btnMed_Click(sender As Object, e As EventArgs) Handles btnMed.Click
-        AddToPanel(FormMedecins)
+        AddToPanel(FormAgent)
     End Sub
 
     Private Sub btnAnimaux_Click(sender As Object, e As EventArgs)
@@ -32,5 +32,9 @@
 
     Private Sub btnAnimaux_Click_1(sender As Object, e As EventArgs) Handles btnAnimaux.Click
         AddToPanel(FormAnimaux)
+    End Sub
+
+    Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AddToPanel(FormAccueil)
     End Sub
 End Class

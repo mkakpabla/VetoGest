@@ -90,6 +90,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositories\AgentRepository.vb" />
     <Compile Include="Repositories\AnimalRepository.vb" />
     <Compile Include="Repositories\ClientRepository.vb" />
     <Compile Include="Repositories\EspeceRepository.vb" />

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormMedecins
+Partial Class FormAgent
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
@@ -22,23 +22,34 @@ Partial Class FormMedecins
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvAgents = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnNouveau = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.bsAgents = New System.Windows.Forms.BindingSource(Me.components)
+        Me.NomCompAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TelAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdrAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FoncAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EditerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        CType(Me.dgvAgents, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsAgents, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(615, 461)
+        Me.Button1.Location = New System.Drawing.Point(615, 442)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(123, 35)
         Me.Button1.TabIndex = 15
@@ -65,16 +76,22 @@ Partial Class FormMedecins
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Recherche:"
         '
-        'DataGridView1
+        'dgvAgents
         '
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvAgents.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 120)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(726, 335)
-        Me.DataGridView1.TabIndex = 12
+        Me.dgvAgents.AutoGenerateColumns = False
+        Me.dgvAgents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvAgents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAgents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NomCompAgtDataGridViewTextBoxColumn, Me.TelAgtDataGridViewTextBoxColumn, Me.AdrAgtDataGridViewTextBoxColumn, Me.FoncAgtDataGridViewTextBoxColumn})
+        Me.dgvAgents.ContextMenuStrip = Me.ContextMenuStrip
+        Me.dgvAgents.DataSource = Me.bsAgents
+        Me.dgvAgents.Location = New System.Drawing.Point(12, 120)
+        Me.dgvAgents.Name = "dgvAgents"
+        Me.dgvAgents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvAgents.Size = New System.Drawing.Size(726, 307)
+        Me.dgvAgents.TabIndex = 12
         '
         'Panel1
         '
@@ -112,9 +129,9 @@ Partial Class FormMedecins
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(59, 17)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 19)
+        Me.Label1.Size = New System.Drawing.Size(132, 19)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Médecins"
+        Me.Label1.Text = "Agents de santé"
         '
         'PictureBox1
         '
@@ -127,7 +144,54 @@ Partial Class FormMedecins
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'FormMedecins
+        'bsAgents
+        '
+        Me.bsAgents.AllowNew = False
+        Me.bsAgents.DataSource = GetType(VetoGest.Data.Models.Agent)
+        '
+        'NomCompAgtDataGridViewTextBoxColumn
+        '
+        Me.NomCompAgtDataGridViewTextBoxColumn.DataPropertyName = "NomCompAgt"
+        Me.NomCompAgtDataGridViewTextBoxColumn.HeaderText = "Nom complet"
+        Me.NomCompAgtDataGridViewTextBoxColumn.Name = "NomCompAgtDataGridViewTextBoxColumn"
+        '
+        'TelAgtDataGridViewTextBoxColumn
+        '
+        Me.TelAgtDataGridViewTextBoxColumn.DataPropertyName = "TelAgt"
+        Me.TelAgtDataGridViewTextBoxColumn.HeaderText = "Téléphone"
+        Me.TelAgtDataGridViewTextBoxColumn.Name = "TelAgtDataGridViewTextBoxColumn"
+        '
+        'AdrAgtDataGridViewTextBoxColumn
+        '
+        Me.AdrAgtDataGridViewTextBoxColumn.DataPropertyName = "AdrAgt"
+        Me.AdrAgtDataGridViewTextBoxColumn.HeaderText = "Adresse"
+        Me.AdrAgtDataGridViewTextBoxColumn.Name = "AdrAgtDataGridViewTextBoxColumn"
+        '
+        'FoncAgtDataGridViewTextBoxColumn
+        '
+        Me.FoncAgtDataGridViewTextBoxColumn.DataPropertyName = "FoncAgt"
+        Me.FoncAgtDataGridViewTextBoxColumn.HeaderText = "Fonction"
+        Me.FoncAgtDataGridViewTextBoxColumn.Name = "FoncAgtDataGridViewTextBoxColumn"
+        '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditerToolStripMenuItem, Me.SupprimerToolStripMenuItem})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(181, 70)
+        '
+        'EditerToolStripMenuItem
+        '
+        Me.EditerToolStripMenuItem.Name = "EditerToolStripMenuItem"
+        Me.EditerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EditerToolStripMenuItem.Text = "Editer"
+        '
+        'SupprimerToolStripMenuItem
+        '
+        Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
+        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.SupprimerToolStripMenuItem.Text = "Supprimer"
+        '
+        'FormAgent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -135,15 +199,17 @@ Partial Class FormMedecins
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvAgents)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "FormMedecins"
+        Me.Name = "FormAgent"
         Me.Text = "FormMedecins"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvAgents, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsAgents, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -152,9 +218,17 @@ Partial Class FormMedecins
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvAgents As DataGridView
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnNouveau As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents bsAgents As BindingSource
+    Friend WithEvents NomCompAgtDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TelAgtDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AdrAgtDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FoncAgtDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ContextMenuStrip As ContextMenuStrip
+    Friend WithEvents EditerToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SupprimerToolStripMenuItem As ToolStripMenuItem
 End Class

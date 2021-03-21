@@ -33,6 +33,7 @@ Partial Class FormLogin
         Me.lblSlogan = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.liblExit = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.pnlLogin.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,6 +55,7 @@ Partial Class FormLogin
         'pnlLogin
         '
         Me.pnlLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(129, Byte), Integer))
+        Me.pnlLogin.Controls.Add(Me.liblExit)
         Me.pnlLogin.Controls.Add(Me.lblTest)
         Me.pnlLogin.Controls.Add(Me.btnLogin)
         Me.pnlLogin.Controls.Add(Me.TextBox2)
@@ -148,9 +150,9 @@ Partial Class FormLogin
         Me.lblName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(129, Byte), Integer))
         Me.lblName.Location = New System.Drawing.Point(88, 214)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(124, 32)
+        Me.lblName.Size = New System.Drawing.Size(136, 32)
         Me.lblName.TabIndex = 2
-        Me.lblName.Text = "VetoGet"
+        Me.lblName.Text = "VetoGest"
         '
         'PictureBox1
         '
@@ -162,6 +164,18 @@ Partial Class FormLogin
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
+        '
+        'liblExit
+        '
+        Me.liblExit.AutoSize = True
+        Me.liblExit.ForeColor = System.Drawing.Color.White
+        Me.liblExit.LinkColor = System.Drawing.Color.White
+        Me.liblExit.Location = New System.Drawing.Point(138, 282)
+        Me.liblExit.Name = "liblExit"
+        Me.liblExit.Size = New System.Drawing.Size(38, 13)
+        Me.liblExit.TabIndex = 6
+        Me.liblExit.TabStop = True
+        Me.liblExit.Text = "Quitter"
         '
         'FormLogin
         '
@@ -194,4 +208,5 @@ Partial Class FormLogin
     Friend WithEvents lblSlogan As Label
     Friend WithEvents lblName As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents liblExit As LinkLabel
 End Class

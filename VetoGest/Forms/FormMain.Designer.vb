@@ -113,7 +113,7 @@ Partial Class FormMain
         Me.btnMed.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
         Me.btnMed.Size = New System.Drawing.Size(213, 48)
         Me.btnMed.TabIndex = 3
-        Me.btnMed.Text = "Médecins"
+        Me.btnMed.Text = "Agents de santés"
         Me.btnMed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnMed.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnMed.UseVisualStyleBackColor = True
