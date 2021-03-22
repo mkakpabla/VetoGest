@@ -36,7 +36,7 @@ Partial Class FormAddAgent
         Me.txtNom = New System.Windows.Forms.TextBox()
         Me.txtTel = New System.Windows.Forms.TextBox()
         Me.btnEnr = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbxFoncAgt = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtLogin = New System.Windows.Forms.TextBox()
         Me.txtMdp = New System.Windows.Forms.TextBox()
@@ -56,7 +56,7 @@ Partial Class FormAddAgent
         'AdrAgtLabel
         '
         AdrAgtLabel.AutoSize = True
-        AdrAgtLabel.Location = New System.Drawing.Point(48, 179)
+        AdrAgtLabel.Location = New System.Drawing.Point(10, 114)
         AdrAgtLabel.Name = "AdrAgtLabel"
         AdrAgtLabel.Size = New System.Drawing.Size(48, 13)
         AdrAgtLabel.TabIndex = 6
@@ -65,7 +65,7 @@ Partial Class FormAddAgent
         'FoncAgtLabel
         '
         FoncAgtLabel.AutoSize = True
-        FoncAgtLabel.Location = New System.Drawing.Point(48, 81)
+        FoncAgtLabel.Location = New System.Drawing.Point(287, 114)
         FoncAgtLabel.Name = "FoncAgtLabel"
         FoncAgtLabel.Size = New System.Drawing.Size(48, 13)
         FoncAgtLabel.TabIndex = 0
@@ -74,7 +74,7 @@ Partial Class FormAddAgent
         'NomCompAgtLabel
         '
         NomCompAgtLabel.AutoSize = True
-        NomCompAgtLabel.Location = New System.Drawing.Point(47, 133)
+        NomCompAgtLabel.Location = New System.Drawing.Point(9, 68)
         NomCompAgtLabel.Name = "NomCompAgtLabel"
         NomCompAgtLabel.Size = New System.Drawing.Size(73, 13)
         NomCompAgtLabel.TabIndex = 2
@@ -83,7 +83,7 @@ Partial Class FormAddAgent
         'TelAgtLabel
         '
         TelAgtLabel.AutoSize = True
-        TelAgtLabel.Location = New System.Drawing.Point(326, 133)
+        TelAgtLabel.Location = New System.Drawing.Point(287, 68)
         TelAgtLabel.Name = "TelAgtLabel"
         TelAgtLabel.Size = New System.Drawing.Size(61, 13)
         TelAgtLabel.TabIndex = 4
@@ -115,7 +115,7 @@ Partial Class FormAddAgent
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(632, 55)
+        Me.Panel1.Size = New System.Drawing.Size(576, 55)
         Me.Panel1.TabIndex = 10
         '
         'Label1
@@ -144,17 +144,17 @@ Partial Class FormAddAgent
         '
         Me.txtAdr.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsAgents, "AdrAgt", True))
         Me.txtAdr.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAdr.Location = New System.Drawing.Point(51, 195)
+        Me.txtAdr.Location = New System.Drawing.Point(13, 130)
         Me.txtAdr.Multiline = True
         Me.txtAdr.Name = "txtAdr"
-        Me.txtAdr.Size = New System.Drawing.Size(540, 37)
+        Me.txtAdr.Size = New System.Drawing.Size(251, 24)
         Me.txtAdr.TabIndex = 7
         '
         'txtNom
         '
         Me.txtNom.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsAgents, "NomCompAgt", True))
         Me.txtNom.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNom.Location = New System.Drawing.Point(50, 149)
+        Me.txtNom.Location = New System.Drawing.Point(12, 84)
         Me.txtNom.Name = "txtNom"
         Me.txtNom.Size = New System.Drawing.Size(252, 23)
         Me.txtNom.TabIndex = 3
@@ -163,31 +163,32 @@ Partial Class FormAddAgent
         '
         Me.txtTel.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsAgents, "TelAgt", True))
         Me.txtTel.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTel.Location = New System.Drawing.Point(329, 149)
+        Me.txtTel.Location = New System.Drawing.Point(290, 84)
         Me.txtTel.Name = "txtTel"
         Me.txtTel.Size = New System.Drawing.Size(262, 23)
         Me.txtTel.TabIndex = 5
         '
         'btnEnr
         '
-        Me.btnEnr.Location = New System.Drawing.Point(452, 319)
+        Me.btnEnr.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEnr.Location = New System.Drawing.Point(414, 256)
         Me.btnEnr.Name = "btnEnr"
         Me.btnEnr.Size = New System.Drawing.Size(139, 32)
         Me.btnEnr.TabIndex = 9
         Me.btnEnr.Text = "Enregistrer"
         Me.btnEnr.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'cbxFoncAgt
         '
-        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsAgents, "FoncAgt", True))
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Médécin", "Infirmier"})
-        Me.ComboBox1.Location = New System.Drawing.Point(50, 97)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(252, 24)
-        Me.ComboBox1.TabIndex = 1
+        Me.cbxFoncAgt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsAgents, "FoncAgt", True))
+        Me.cbxFoncAgt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxFoncAgt.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxFoncAgt.FormattingEnabled = True
+        Me.cbxFoncAgt.Items.AddRange(New Object() {"Médécin", "Infirmier"})
+        Me.cbxFoncAgt.Location = New System.Drawing.Point(290, 130)
+        Me.cbxFoncAgt.Name = "cbxFoncAgt"
+        Me.cbxFoncAgt.Size = New System.Drawing.Size(263, 24)
+        Me.cbxFoncAgt.TabIndex = 1
         '
         'GroupBox1
         '
@@ -195,7 +196,7 @@ Partial Class FormAddAgent
         Me.GroupBox1.Controls.Add(Me.txtLogin)
         Me.GroupBox1.Controls.Add(MdpAgtLabel)
         Me.GroupBox1.Controls.Add(Me.txtMdp)
-        Me.GroupBox1.Location = New System.Drawing.Point(51, 241)
+        Me.GroupBox1.Location = New System.Drawing.Point(13, 178)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(540, 72)
         Me.GroupBox1.TabIndex = 8
@@ -217,7 +218,8 @@ Partial Class FormAddAgent
         Me.txtMdp.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMdp.Location = New System.Drawing.Point(283, 32)
         Me.txtMdp.Name = "txtMdp"
-        Me.txtMdp.Size = New System.Drawing.Size(229, 23)
+        Me.txtMdp.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtMdp.Size = New System.Drawing.Size(242, 23)
         Me.txtMdp.TabIndex = 3
         '
         'bsAgents
@@ -228,9 +230,9 @@ Partial Class FormAddAgent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(632, 363)
+        Me.ClientSize = New System.Drawing.Size(576, 318)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cbxFoncAgt)
         Me.Controls.Add(Me.btnEnr)
         Me.Controls.Add(AdrAgtLabel)
         Me.Controls.Add(Me.txtAdr)
@@ -264,7 +266,7 @@ Partial Class FormAddAgent
     Friend WithEvents txtNom As TextBox
     Friend WithEvents txtTel As TextBox
     Friend WithEvents btnEnr As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbxFoncAgt As ComboBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtLogin As TextBox
     Friend WithEvents txtMdp As TextBox

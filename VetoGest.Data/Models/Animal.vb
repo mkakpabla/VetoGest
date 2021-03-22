@@ -9,8 +9,6 @@ Namespace Models
 
         Public Property SexeAml As String
 
-        Public Property PoidsAml As Integer
-
         Public Property DateNaissAml As String
 
         Public Property CouleurAml As String

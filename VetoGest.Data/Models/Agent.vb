@@ -22,6 +22,9 @@ Namespace Models
         <Required(ErrorMessage:="La fonction est requis")>
         Public Property FoncAgt As String
 
+        Public Property LoginAgt As String
+
+        Public Property MdpAgt As String
 
     End Class
 End Namespace

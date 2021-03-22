@@ -3,7 +3,6 @@ Imports VetoGest.Data.Rules
 
 Namespace Models
     Public Class Client
-        Inherits ModelValidator
 
         Public Property IdClt As Integer
 
@@ -25,6 +24,13 @@ Namespace Models
 
         <Required(ErrorMessage:="La civilité du client est obligatoire")>
         Public Property CiviliteClt As String
+
+        Public ReadOnly Property FullName As String
+            Get
+                Return NomClt & " " & PrenomClt
+            End Get
+
+        End Property
 
     End Class
 

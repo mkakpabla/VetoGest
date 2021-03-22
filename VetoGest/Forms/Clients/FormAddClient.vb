@@ -1,6 +1,8 @@
 ﻿Imports VetoGest.Data.Models
 Imports VetoGest.Data.Repositories
 Imports VetoGest.Data.Db
+Imports System.ComponentModel.DataAnnotations
+
 Public Class FormAddClient
 
     Dim clientRepository As ClientRepository = New ClientRepository()
@@ -16,9 +18,8 @@ Public Class FormAddClient
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim client As Client = TryCast(bsClient.Current, Client)
-
-        If client.IsValiad Then
-
+        Dim validation As New Validation(client)
+        If validation.IsValid Then
             If (client.IdClt > 0) Then
                 Dim ok As Boolean = clientRepository.Update(client)
                 If ok Then
@@ -31,6 +32,12 @@ Public Class FormAddClient
                     bsClient.DataSource = New Client
                 End If
             End If
+        Else
+            MessageBox.Show(validation.Errors.First.ErrorMessage)
+            Return
         End If
+
     End Sub
+
+
 End Class

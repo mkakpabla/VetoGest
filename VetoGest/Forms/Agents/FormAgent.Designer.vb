@@ -23,47 +23,47 @@ Partial Class FormAgent
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgvAgents = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EditerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnNouveau = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.bsAgents = New System.Windows.Forms.BindingSource(Me.components)
         Me.NomCompAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TelAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AdrAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FoncAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EditerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.bsAgents = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.dgvAgents, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsAgents, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnPrint
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(615, 442)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(123, 35)
-        Me.Button1.TabIndex = 15
-        Me.Button1.Text = "Imprimer"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnPrint.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPrint.Location = New System.Drawing.Point(615, 442)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(123, 35)
+        Me.btnPrint.TabIndex = 15
+        Me.btnPrint.Text = "Imprimer"
+        Me.btnPrint.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtSearch
         '
-        Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(482, 91)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(256, 23)
-        Me.TextBox1.TabIndex = 14
+        Me.txtSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(482, 91)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(256, 23)
+        Me.txtSearch.TabIndex = 14
         '
         'Label2
         '
@@ -92,6 +92,24 @@ Partial Class FormAgent
         Me.dgvAgents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAgents.Size = New System.Drawing.Size(726, 307)
         Me.dgvAgents.TabIndex = 12
+        '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditerToolStripMenuItem, Me.SupprimerToolStripMenuItem})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(181, 70)
+        '
+        'EditerToolStripMenuItem
+        '
+        Me.EditerToolStripMenuItem.Name = "EditerToolStripMenuItem"
+        Me.EditerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EditerToolStripMenuItem.Text = "Editer"
+        '
+        'SupprimerToolStripMenuItem
+        '
+        Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
+        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SupprimerToolStripMenuItem.Text = "Supprimer"
         '
         'Panel1
         '
@@ -144,11 +162,6 @@ Partial Class FormAgent
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'bsAgents
-        '
-        Me.bsAgents.AllowNew = False
-        Me.bsAgents.DataSource = GetType(VetoGest.Data.Models.Agent)
-        '
         'NomCompAgtDataGridViewTextBoxColumn
         '
         Me.NomCompAgtDataGridViewTextBoxColumn.DataPropertyName = "NomCompAgt"
@@ -173,31 +186,18 @@ Partial Class FormAgent
         Me.FoncAgtDataGridViewTextBoxColumn.HeaderText = "Fonction"
         Me.FoncAgtDataGridViewTextBoxColumn.Name = "FoncAgtDataGridViewTextBoxColumn"
         '
-        'ContextMenuStrip
+        'bsAgents
         '
-        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditerToolStripMenuItem, Me.SupprimerToolStripMenuItem})
-        Me.ContextMenuStrip.Name = "ContextMenuStrip"
-        Me.ContextMenuStrip.Size = New System.Drawing.Size(181, 70)
-        '
-        'EditerToolStripMenuItem
-        '
-        Me.EditerToolStripMenuItem.Name = "EditerToolStripMenuItem"
-        Me.EditerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EditerToolStripMenuItem.Text = "Editer"
-        '
-        'SupprimerToolStripMenuItem
-        '
-        Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
-        Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
-        Me.SupprimerToolStripMenuItem.Text = "Supprimer"
+        Me.bsAgents.AllowNew = False
+        Me.bsAgents.DataSource = GetType(VetoGest.Data.Models.Agent)
         '
         'FormAgent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(750, 500)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.btnPrint)
+        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dgvAgents)
         Me.Controls.Add(Me.Panel1)
@@ -205,18 +205,18 @@ Partial Class FormAgent
         Me.Name = "FormAgent"
         Me.Text = "FormMedecins"
         CType(Me.dgvAgents, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsAgents, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents btnPrint As Button
+    Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents dgvAgents As DataGridView
     Friend WithEvents Panel1 As Panel

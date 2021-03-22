@@ -32,14 +32,23 @@ Partial Class FormAnimaux
         Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimerConsulationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnEsp = New System.Windows.Forms.Button()
         Me.btnNouveau = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnEsp = New System.Windows.Forms.Button()
+        Me.bsAnimal = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SexeAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateNaissAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CouleurAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EspeceIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClientIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -73,13 +82,21 @@ Partial Class FormAnimaux
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdAmlDataGridViewTextBoxColumn, Me.NomAmlDataGridViewTextBoxColumn, Me.SexeAmlDataGridViewTextBoxColumn, Me.DateNaissAmlDataGridViewTextBoxColumn, Me.CouleurAmlDataGridViewTextBoxColumn, Me.EspeceIdDataGridViewTextBoxColumn, Me.ClientIdDataGridViewTextBoxColumn})
         Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.DataGridView1.DataSource = Me.bsAnimal
         Me.DataGridView1.Location = New System.Drawing.Point(12, 114)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(726, 327)
         Me.DataGridView1.TabIndex = 20
         '
@@ -120,6 +137,23 @@ Partial Class FormAnimaux
         Me.Panel1.Size = New System.Drawing.Size(750, 55)
         Me.Panel1.TabIndex = 19
         '
+        'btnEsp
+        '
+        Me.btnEsp.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnEsp.BackColor = System.Drawing.Color.Black
+        Me.btnEsp.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEsp.FlatAppearance.BorderSize = 0
+        Me.btnEsp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEsp.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEsp.ForeColor = System.Drawing.Color.White
+        Me.btnEsp.Location = New System.Drawing.Point(538, 12)
+        Me.btnEsp.Name = "btnEsp"
+        Me.btnEsp.Size = New System.Drawing.Size(97, 33)
+        Me.btnEsp.TabIndex = 4
+        Me.btnEsp.Text = "  ESPECES"
+        Me.btnEsp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnEsp.UseVisualStyleBackColor = False
+        '
         'btnNouveau
         '
         Me.btnNouveau.Anchor = System.Windows.Forms.AnchorStyles.Right
@@ -159,22 +193,61 @@ Partial Class FormAnimaux
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'btnEsp
+        'bsAnimal
         '
-        Me.btnEsp.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.btnEsp.BackColor = System.Drawing.Color.Black
-        Me.btnEsp.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnEsp.FlatAppearance.BorderSize = 0
-        Me.btnEsp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEsp.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEsp.ForeColor = System.Drawing.Color.White
-        Me.btnEsp.Location = New System.Drawing.Point(538, 12)
-        Me.btnEsp.Name = "btnEsp"
-        Me.btnEsp.Size = New System.Drawing.Size(97, 33)
-        Me.btnEsp.TabIndex = 4
-        Me.btnEsp.Text = "  ESPECES"
-        Me.btnEsp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnEsp.UseVisualStyleBackColor = False
+        Me.bsAnimal.DataSource = GetType(VetoGest.Data.Models.Animal)
+        '
+        'IdAmlDataGridViewTextBoxColumn
+        '
+        Me.IdAmlDataGridViewTextBoxColumn.DataPropertyName = "IdAml"
+        Me.IdAmlDataGridViewTextBoxColumn.HeaderText = "IdAml"
+        Me.IdAmlDataGridViewTextBoxColumn.Name = "IdAmlDataGridViewTextBoxColumn"
+        Me.IdAmlDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdAmlDataGridViewTextBoxColumn.Visible = False
+        '
+        'NomAmlDataGridViewTextBoxColumn
+        '
+        Me.NomAmlDataGridViewTextBoxColumn.DataPropertyName = "NomAml"
+        Me.NomAmlDataGridViewTextBoxColumn.HeaderText = "Nom"
+        Me.NomAmlDataGridViewTextBoxColumn.Name = "NomAmlDataGridViewTextBoxColumn"
+        Me.NomAmlDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'SexeAmlDataGridViewTextBoxColumn
+        '
+        Me.SexeAmlDataGridViewTextBoxColumn.DataPropertyName = "SexeAml"
+        Me.SexeAmlDataGridViewTextBoxColumn.HeaderText = "Sexe"
+        Me.SexeAmlDataGridViewTextBoxColumn.Name = "SexeAmlDataGridViewTextBoxColumn"
+        Me.SexeAmlDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DateNaissAmlDataGridViewTextBoxColumn
+        '
+        Me.DateNaissAmlDataGridViewTextBoxColumn.DataPropertyName = "DateNaissAml"
+        Me.DateNaissAmlDataGridViewTextBoxColumn.HeaderText = "Date de naissance"
+        Me.DateNaissAmlDataGridViewTextBoxColumn.Name = "DateNaissAmlDataGridViewTextBoxColumn"
+        Me.DateNaissAmlDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CouleurAmlDataGridViewTextBoxColumn
+        '
+        Me.CouleurAmlDataGridViewTextBoxColumn.DataPropertyName = "CouleurAml"
+        Me.CouleurAmlDataGridViewTextBoxColumn.HeaderText = "Couleur"
+        Me.CouleurAmlDataGridViewTextBoxColumn.Name = "CouleurAmlDataGridViewTextBoxColumn"
+        Me.CouleurAmlDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'EspeceIdDataGridViewTextBoxColumn
+        '
+        Me.EspeceIdDataGridViewTextBoxColumn.DataPropertyName = "EspeceId"
+        Me.EspeceIdDataGridViewTextBoxColumn.HeaderText = "EspeceId"
+        Me.EspeceIdDataGridViewTextBoxColumn.Name = "EspeceIdDataGridViewTextBoxColumn"
+        Me.EspeceIdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.EspeceIdDataGridViewTextBoxColumn.Visible = False
+        '
+        'ClientIdDataGridViewTextBoxColumn
+        '
+        Me.ClientIdDataGridViewTextBoxColumn.DataPropertyName = "ClientId"
+        Me.ClientIdDataGridViewTextBoxColumn.HeaderText = "ClientId"
+        Me.ClientIdDataGridViewTextBoxColumn.Name = "ClientIdDataGridViewTextBoxColumn"
+        Me.ClientIdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ClientIdDataGridViewTextBoxColumn.Visible = False
         '
         'FormAnimaux
         '
@@ -194,6 +267,7 @@ Partial Class FormAnimaux
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -212,4 +286,12 @@ Partial Class FormAnimaux
     Friend WithEvents SupprimerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImprimerConsulationsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnEsp As Button
+    Friend WithEvents bsAnimal As BindingSource
+    Friend WithEvents IdAmlDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NomAmlDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SexeAmlDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DateNaissAmlDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CouleurAmlDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EspeceIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ClientIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
