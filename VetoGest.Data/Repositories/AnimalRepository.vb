@@ -27,5 +27,9 @@ Namespace Repositories
         Public Function Delete(Id As Integer) As Integer Implements IReposiory(Of Animal).Delete
             Throw New NotImplementedException()
         End Function
+
+        Public Function Search(ColomnName As String, SearchValue As String) As List(Of Animal) Implements IReposiory(Of Animal).Search
+            Throw New NotImplementedException()
+        End Function
     End Class
 End Namespace

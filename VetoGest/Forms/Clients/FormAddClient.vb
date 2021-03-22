@@ -5,6 +5,8 @@ Imports System.ComponentModel.DataAnnotations
 
 Public Class FormAddClient
 
+    Public Event RefreshGrid()
+
     Dim clientRepository As ClientRepository = New ClientRepository()
     Public Sub New()
         InitializeComponent()
@@ -24,12 +26,14 @@ Public Class FormAddClient
                 Dim ok As Boolean = clientRepository.Update(client)
                 If ok Then
                     MessageBox.Show("Les informations du client ont été enrégistrer")
+                    RaiseEvent RefreshGrid()
                 End If
             Else
                 Dim ok As Boolean = clientRepository.Insert(client)
                 If ok Then
                     MessageBox.Show("Le client à eté ajouter avec succes")
                     bsClient.DataSource = New Client
+                    RaiseEvent RefreshGrid()
                 End If
             End If
         Else

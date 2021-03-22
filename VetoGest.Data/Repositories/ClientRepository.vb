@@ -38,5 +38,16 @@ Namespace Repositories
                 Return Connection.Execute($"DELETE FROM Clients WHERE IdClt = {Id}") > 0
             End Using
         End Function
+
+        Public Function Search(ColomnName As String, SearchValue As String) As List(Of Client) Implements IReposiory(Of Client).Search
+            Try
+                Using Connection = GetConnection
+                    Connection.Open()
+                    Return Connection.Query(Of Client)($"SELECT * FROM Clients WHERE NomClt LIKE '%{SearchValue}%' OR PrenomClt LIKE '%{SearchValue}%'")
+                End Using
+            Catch ex As Exception
+                Return Nothing
+            End Try
+        End Function
     End Class
 End Namespace

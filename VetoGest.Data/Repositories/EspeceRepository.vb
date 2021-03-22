@@ -55,5 +55,9 @@ Namespace Repositories
                 Return Nothing
             End Try
         End Function
+
+        Public Function Search(ColomnName As String, SearchValue As String) As List(Of Espece) Implements IReposiory(Of Espece).Search
+            Throw New NotImplementedException()
+        End Function
     End Class
 End Namespace

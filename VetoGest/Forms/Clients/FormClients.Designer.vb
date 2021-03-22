@@ -23,49 +23,49 @@ Partial Class FormClients
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dgvClients = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ModifierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnNouveau = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.IdClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CiviliteClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PrenomClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AdrClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TelClt = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ModifierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.bsClients = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnNouveau = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.dgvClients, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip.SuspendLayout()
-        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnPrint
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(620, 434)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(118, 35)
-        Me.Button1.TabIndex = 33
-        Me.Button1.Text = "Imprimer"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnPrint.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPrint.Location = New System.Drawing.Point(620, 434)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(118, 35)
+        Me.btnPrint.TabIndex = 33
+        Me.btnPrint.Text = "Imprimer"
+        Me.btnPrint.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'txtSearch
         '
-        Me.TextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(482, 94)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(256, 23)
-        Me.TextBox2.TabIndex = 32
+        Me.txtSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(482, 94)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(256, 23)
+        Me.txtSearch.TabIndex = 32
         '
         'Label6
         '
@@ -101,49 +101,6 @@ Partial Class FormClients
         Me.dgvClients.Size = New System.Drawing.Size(726, 290)
         Me.dgvClients.TabIndex = 30
         '
-        'IdClt
-        '
-        Me.IdClt.DataPropertyName = "IdClt"
-        Me.IdClt.HeaderText = "IdClt"
-        Me.IdClt.Name = "IdClt"
-        Me.IdClt.ReadOnly = True
-        Me.IdClt.Visible = False
-        '
-        'CiviliteClt
-        '
-        Me.CiviliteClt.DataPropertyName = "CiviliteClt"
-        Me.CiviliteClt.HeaderText = "Civilité"
-        Me.CiviliteClt.Name = "CiviliteClt"
-        Me.CiviliteClt.ReadOnly = True
-        '
-        'NomClt
-        '
-        Me.NomClt.DataPropertyName = "NomClt"
-        Me.NomClt.HeaderText = "Nom"
-        Me.NomClt.Name = "NomClt"
-        Me.NomClt.ReadOnly = True
-        '
-        'PrenomClt
-        '
-        Me.PrenomClt.DataPropertyName = "PrenomClt"
-        Me.PrenomClt.HeaderText = "Prénom"
-        Me.PrenomClt.Name = "PrenomClt"
-        Me.PrenomClt.ReadOnly = True
-        '
-        'AdrClt
-        '
-        Me.AdrClt.DataPropertyName = "AdrClt"
-        Me.AdrClt.HeaderText = "Adresse"
-        Me.AdrClt.Name = "AdrClt"
-        Me.AdrClt.ReadOnly = True
-        '
-        'TelClt
-        '
-        Me.TelClt.DataPropertyName = "TelClt"
-        Me.TelClt.HeaderText = "Téléphone"
-        Me.TelClt.Name = "TelClt"
-        Me.TelClt.ReadOnly = True
-        '
         'ContextMenuStrip
         '
         Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModifierToolStripMenuItem, Me.SupprimerToolStripMenuItem})
@@ -161,11 +118,6 @@ Partial Class FormClients
         Me.SupprimerToolStripMenuItem.Name = "SupprimerToolStripMenuItem"
         Me.SupprimerToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.SupprimerToolStripMenuItem.Text = "Supprimer"
-        '
-        'bsClients
-        '
-        Me.bsClients.AllowNew = True
-        Me.bsClients.DataSource = GetType(VetoGest.Data.Models.Client)
         '
         'Panel1
         '
@@ -218,13 +170,61 @@ Partial Class FormClients
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'IdClt
+        '
+        Me.IdClt.DataPropertyName = "IdClt"
+        Me.IdClt.HeaderText = "IdClt"
+        Me.IdClt.Name = "IdClt"
+        Me.IdClt.ReadOnly = True
+        Me.IdClt.Visible = False
+        '
+        'CiviliteClt
+        '
+        Me.CiviliteClt.DataPropertyName = "CiviliteClt"
+        Me.CiviliteClt.HeaderText = "Civilité"
+        Me.CiviliteClt.Name = "CiviliteClt"
+        Me.CiviliteClt.ReadOnly = True
+        '
+        'NomClt
+        '
+        Me.NomClt.DataPropertyName = "NomClt"
+        Me.NomClt.HeaderText = "Nom"
+        Me.NomClt.Name = "NomClt"
+        Me.NomClt.ReadOnly = True
+        '
+        'PrenomClt
+        '
+        Me.PrenomClt.DataPropertyName = "PrenomClt"
+        Me.PrenomClt.HeaderText = "Prénom"
+        Me.PrenomClt.Name = "PrenomClt"
+        Me.PrenomClt.ReadOnly = True
+        '
+        'AdrClt
+        '
+        Me.AdrClt.DataPropertyName = "AdrClt"
+        Me.AdrClt.HeaderText = "Adresse"
+        Me.AdrClt.Name = "AdrClt"
+        Me.AdrClt.ReadOnly = True
+        '
+        'TelClt
+        '
+        Me.TelClt.DataPropertyName = "TelClt"
+        Me.TelClt.HeaderText = "Téléphone"
+        Me.TelClt.Name = "TelClt"
+        Me.TelClt.ReadOnly = True
+        '
+        'bsClients
+        '
+        Me.bsClients.AllowNew = True
+        Me.bsClients.DataSource = GetType(VetoGest.Data.Models.Client)
+        '
         'FormClients
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(750, 500)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.btnPrint)
+        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.dgvClients)
         Me.Controls.Add(Me.Panel1)
@@ -233,17 +233,17 @@ Partial Class FormClients
         Me.Text = "FormClients"
         CType(Me.dgvClients, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip.ResumeLayout(False)
-        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents btnPrint As Button
+    Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents dgvClients As DataGridView
     Friend WithEvents Panel1 As Panel

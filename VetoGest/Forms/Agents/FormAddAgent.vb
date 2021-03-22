@@ -49,6 +49,7 @@ Public Class FormAddAgent
             If agent.IdAgt > 0 Then
                 If GetAgentRepository.Update(agent) Then
                     MessageBox.Show("Les informations de l'agent de santé ont été mis à jour")
+                    RaiseEvent RefreshGrid()
                 End If
             Else
                 If GetAgentRepository.Insert(agent) Then

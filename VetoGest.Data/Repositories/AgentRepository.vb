@@ -70,5 +70,9 @@ Namespace Repositories
                 Return Nothing
             End Try
         End Function
+
+        Private Function IReposiory_Search(ColomnName As String, SearchValue As String) As List(Of Agent) Implements IReposiory(Of Agent).Search
+            Throw New NotImplementedException()
+        End Function
     End Class
 End Namespace

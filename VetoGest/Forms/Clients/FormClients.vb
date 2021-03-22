@@ -1,9 +1,10 @@
-﻿Imports VetoGest.Data.Models
+﻿Imports VetoGest.Data
+Imports VetoGest.Data.Models
 Imports VetoGest.Data.Repositories
 
 Public Class FormClients
 
-    'Dim client As Client
+    Dim WithEvents FormAddClient As New FormAddClient
 
 
     Dim clientRepository As ClientRepository = New ClientRepository()
@@ -18,13 +19,18 @@ Public Class FormClients
     End Sub
 
     Private Sub btnNouveau_Click(sender As Object, e As EventArgs) Handles btnNouveau.Click
+        FormAddClient = New FormAddClient()
         FormAddClient.ShowDialog()
+    End Sub
+
+    Private Sub RefreshGrid() Handles FormAddClient.RefreshGrid
+        LoadData()
     End Sub
 
     Private Sub ModifierToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifierToolStripMenuItem.Click
         Dim _client As Client = TryCast(bsClients.Current, Client)
-        Dim Form As FormAddClient = New FormAddClient(_client)
-        Form.ShowDialog()
+        FormAddClient = New FormAddClient(_client)
+        FormAddClient.ShowDialog()
     End Sub
 
     Private Sub SupprimerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SupprimerToolStripMenuItem.Click
@@ -66,6 +72,19 @@ Public Class FormClients
         End If
     End Sub
 
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        If String.IsNullOrWhiteSpace(txtSearch.Text) Then
+            LoadData()
+        Else
+            bsClients.DataSource = clientRepository.Search("NomClt", txtSearch.Text)
+        End If
+    End Sub
 
-
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        Dim ClientReport As ClientReport = New ClientReport()
+        ClientReport.SetDataSource(bsClients)
+        FormPrint.crpPrint.ReportSource = ClientReport
+        FormPrint.crpPrint.RefreshReport()
+        FormPrint.ShowDialog()
+    End Sub
 End Class

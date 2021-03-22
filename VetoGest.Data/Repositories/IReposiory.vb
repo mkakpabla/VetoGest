@@ -13,5 +13,7 @@
         Function Delete(ByVal Id As Integer) As Integer
 
 
+        Function Search(ByVal ColomnName As String, ByVal SearchValue As String) As List(Of T)
+
     End Interface
 End Namespace
