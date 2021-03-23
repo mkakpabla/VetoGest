@@ -16,6 +16,17 @@ Namespace Repositories
             End Try
         End Function
 
+        Public Function GetAll(ByVal ClientId As Integer) As List(Of Animal)
+            Try
+                Using Connection = GetConnection
+                    Connection.Open()
+                    Return Connection.Query(Of Animal)($"SELECT * FROM Animaux WHERE IdClt = {ClientId}").ToList
+                End Using
+            Catch ex As Exception
+                Return Nothing
+            End Try
+        End Function
+
         Public Function GetById(Id As Integer) As Animal Implements IReposiory(Of Animal).GetById
             Try
                 Using Connection = GetConnection

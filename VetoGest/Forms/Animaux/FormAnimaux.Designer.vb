@@ -26,14 +26,12 @@ Partial Class FormAnimaux
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvAnimaux = New System.Windows.Forms.DataGridView()
         Me.IdAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SexeAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateNaissAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CouleurAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EspeceIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClientIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ModifierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,12 +42,14 @@ Partial Class FormAnimaux
         Me.btnNouveau = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cbxClients = New System.Windows.Forms.ComboBox()
+        Me.bsClients = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.dgvAnimaux, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -66,7 +66,7 @@ Partial Class FormAnimaux
         '
         Me.TextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(482, 85)
+        Me.TextBox2.Location = New System.Drawing.Point(482, 82)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(256, 23)
         Me.TextBox2.TabIndex = 22
@@ -75,31 +75,32 @@ Partial Class FormAnimaux
         '
         Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(413, 90)
+        Me.Label6.Location = New System.Drawing.Point(413, 87)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(63, 13)
         Me.Label6.TabIndex = 21
         Me.Label6.Text = "Recherche:"
         '
-        'DataGridView1
+        'dgvAnimaux
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvAnimaux.AllowUserToAddRows = False
+        Me.dgvAnimaux.AllowUserToDeleteRows = False
+        Me.dgvAnimaux.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdAmlDataGridViewTextBoxColumn, Me.NomAmlDataGridViewTextBoxColumn, Me.SexeAmlDataGridViewTextBoxColumn, Me.DateNaissAmlDataGridViewTextBoxColumn, Me.CouleurAmlDataGridViewTextBoxColumn, Me.EspeceIdDataGridViewTextBoxColumn, Me.ClientIdDataGridViewTextBoxColumn})
-        Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.DataGridView1.DataSource = Me.bsAnimal
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 114)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(726, 327)
-        Me.DataGridView1.TabIndex = 20
+        Me.dgvAnimaux.AutoGenerateColumns = False
+        Me.dgvAnimaux.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvAnimaux.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAnimaux.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdAmlDataGridViewTextBoxColumn, Me.NomAmlDataGridViewTextBoxColumn, Me.SexeAmlDataGridViewTextBoxColumn, Me.DateNaissAmlDataGridViewTextBoxColumn, Me.CouleurAmlDataGridViewTextBoxColumn})
+        Me.dgvAnimaux.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.dgvAnimaux.DataSource = Me.bsAnimal
+        Me.dgvAnimaux.Location = New System.Drawing.Point(12, 114)
+        Me.dgvAnimaux.MultiSelect = False
+        Me.dgvAnimaux.Name = "dgvAnimaux"
+        Me.dgvAnimaux.ReadOnly = True
+        Me.dgvAnimaux.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvAnimaux.Size = New System.Drawing.Size(726, 327)
+        Me.dgvAnimaux.TabIndex = 20
         '
         'IdAmlDataGridViewTextBoxColumn
         '
@@ -137,27 +138,11 @@ Partial Class FormAnimaux
         Me.CouleurAmlDataGridViewTextBoxColumn.Name = "CouleurAmlDataGridViewTextBoxColumn"
         Me.CouleurAmlDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'EspeceIdDataGridViewTextBoxColumn
-        '
-        Me.EspeceIdDataGridViewTextBoxColumn.DataPropertyName = "EspeceId"
-        Me.EspeceIdDataGridViewTextBoxColumn.HeaderText = "EspeceId"
-        Me.EspeceIdDataGridViewTextBoxColumn.Name = "EspeceIdDataGridViewTextBoxColumn"
-        Me.EspeceIdDataGridViewTextBoxColumn.ReadOnly = True
-        Me.EspeceIdDataGridViewTextBoxColumn.Visible = False
-        '
-        'ClientIdDataGridViewTextBoxColumn
-        '
-        Me.ClientIdDataGridViewTextBoxColumn.DataPropertyName = "ClientId"
-        Me.ClientIdDataGridViewTextBoxColumn.HeaderText = "ClientId"
-        Me.ClientIdDataGridViewTextBoxColumn.Name = "ClientIdDataGridViewTextBoxColumn"
-        Me.ClientIdDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ClientIdDataGridViewTextBoxColumn.Visible = False
-        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModifierToolStripMenuItem, Me.SupprimerToolStripMenuItem, Me.ImprimerConsulationsToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(194, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(194, 92)
         '
         'ModifierToolStripMenuItem
         '
@@ -250,35 +235,44 @@ Partial Class FormAnimaux
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'ComboBox1
+        'cbxClients
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(12, 87)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(215, 21)
-        Me.ComboBox1.TabIndex = 24
+        Me.cbxClients.DataSource = Me.bsClients
+        Me.cbxClients.DisplayMember = "FullName"
+        Me.cbxClients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxClients.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxClients.FormattingEnabled = True
+        Me.cbxClients.Location = New System.Drawing.Point(12, 82)
+        Me.cbxClients.Name = "cbxClients"
+        Me.cbxClients.Size = New System.Drawing.Size(215, 24)
+        Me.cbxClients.TabIndex = 24
+        Me.cbxClients.ValueMember = "IdClt"
+        '
+        'bsClients
+        '
+        Me.bsClients.DataSource = GetType(VetoGest.Data.Models.Client)
         '
         'FormAnimaux
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(750, 500)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cbxClients)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvAnimaux)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FormAnimaux"
         Me.Text = "FormAnimaux"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvAnimaux, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -287,7 +281,7 @@ Partial Class FormAnimaux
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvAnimaux As DataGridView
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnNouveau As Button
     Friend WithEvents Label1 As Label
@@ -305,5 +299,6 @@ Partial Class FormAnimaux
     Friend WithEvents CouleurAmlDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EspeceIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ClientIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbxClients As ComboBox
+    Friend WithEvents bsClients As BindingSource
 End Class
