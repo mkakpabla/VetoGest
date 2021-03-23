@@ -27,16 +27,6 @@ Partial Class FormAnimaux
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ModifierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImprimerConsulationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnEsp = New System.Windows.Forms.Button()
-        Me.btnNouveau = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.bsAnimal = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SexeAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,11 +34,22 @@ Partial Class FormAnimaux
         Me.CouleurAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EspeceIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClientIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ModifierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImprimerConsulationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.bsAnimal = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnEsp = New System.Windows.Forms.Button()
+        Me.btnNouveau = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
+        CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -100,6 +101,58 @@ Partial Class FormAnimaux
         Me.DataGridView1.Size = New System.Drawing.Size(726, 327)
         Me.DataGridView1.TabIndex = 20
         '
+        'IdAmlDataGridViewTextBoxColumn
+        '
+        Me.IdAmlDataGridViewTextBoxColumn.DataPropertyName = "IdAml"
+        Me.IdAmlDataGridViewTextBoxColumn.HeaderText = "IdAml"
+        Me.IdAmlDataGridViewTextBoxColumn.Name = "IdAmlDataGridViewTextBoxColumn"
+        Me.IdAmlDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdAmlDataGridViewTextBoxColumn.Visible = False
+        '
+        'NomAmlDataGridViewTextBoxColumn
+        '
+        Me.NomAmlDataGridViewTextBoxColumn.DataPropertyName = "NomAml"
+        Me.NomAmlDataGridViewTextBoxColumn.HeaderText = "Nom"
+        Me.NomAmlDataGridViewTextBoxColumn.Name = "NomAmlDataGridViewTextBoxColumn"
+        Me.NomAmlDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'SexeAmlDataGridViewTextBoxColumn
+        '
+        Me.SexeAmlDataGridViewTextBoxColumn.DataPropertyName = "SexeAml"
+        Me.SexeAmlDataGridViewTextBoxColumn.HeaderText = "Sexe"
+        Me.SexeAmlDataGridViewTextBoxColumn.Name = "SexeAmlDataGridViewTextBoxColumn"
+        Me.SexeAmlDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DateNaissAmlDataGridViewTextBoxColumn
+        '
+        Me.DateNaissAmlDataGridViewTextBoxColumn.DataPropertyName = "DateNaissAml"
+        Me.DateNaissAmlDataGridViewTextBoxColumn.HeaderText = "Date de naissance"
+        Me.DateNaissAmlDataGridViewTextBoxColumn.Name = "DateNaissAmlDataGridViewTextBoxColumn"
+        Me.DateNaissAmlDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CouleurAmlDataGridViewTextBoxColumn
+        '
+        Me.CouleurAmlDataGridViewTextBoxColumn.DataPropertyName = "CouleurAml"
+        Me.CouleurAmlDataGridViewTextBoxColumn.HeaderText = "Couleur"
+        Me.CouleurAmlDataGridViewTextBoxColumn.Name = "CouleurAmlDataGridViewTextBoxColumn"
+        Me.CouleurAmlDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'EspeceIdDataGridViewTextBoxColumn
+        '
+        Me.EspeceIdDataGridViewTextBoxColumn.DataPropertyName = "EspeceId"
+        Me.EspeceIdDataGridViewTextBoxColumn.HeaderText = "EspeceId"
+        Me.EspeceIdDataGridViewTextBoxColumn.Name = "EspeceIdDataGridViewTextBoxColumn"
+        Me.EspeceIdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.EspeceIdDataGridViewTextBoxColumn.Visible = False
+        '
+        'ClientIdDataGridViewTextBoxColumn
+        '
+        Me.ClientIdDataGridViewTextBoxColumn.DataPropertyName = "ClientId"
+        Me.ClientIdDataGridViewTextBoxColumn.HeaderText = "ClientId"
+        Me.ClientIdDataGridViewTextBoxColumn.Name = "ClientIdDataGridViewTextBoxColumn"
+        Me.ClientIdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ClientIdDataGridViewTextBoxColumn.Visible = False
+        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModifierToolStripMenuItem, Me.SupprimerToolStripMenuItem, Me.ImprimerConsulationsToolStripMenuItem})
@@ -123,6 +176,10 @@ Partial Class FormAnimaux
         Me.ImprimerConsulationsToolStripMenuItem.Name = "ImprimerConsulationsToolStripMenuItem"
         Me.ImprimerConsulationsToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.ImprimerConsulationsToolStripMenuItem.Text = "Imprimer consulations"
+        '
+        'bsAnimal
+        '
+        Me.bsAnimal.DataSource = GetType(VetoGest.Data.Models.Animal)
         '
         'Panel1
         '
@@ -193,67 +250,21 @@ Partial Class FormAnimaux
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'bsAnimal
+        'ComboBox1
         '
-        Me.bsAnimal.DataSource = GetType(VetoGest.Data.Models.Animal)
-        '
-        'IdAmlDataGridViewTextBoxColumn
-        '
-        Me.IdAmlDataGridViewTextBoxColumn.DataPropertyName = "IdAml"
-        Me.IdAmlDataGridViewTextBoxColumn.HeaderText = "IdAml"
-        Me.IdAmlDataGridViewTextBoxColumn.Name = "IdAmlDataGridViewTextBoxColumn"
-        Me.IdAmlDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdAmlDataGridViewTextBoxColumn.Visible = False
-        '
-        'NomAmlDataGridViewTextBoxColumn
-        '
-        Me.NomAmlDataGridViewTextBoxColumn.DataPropertyName = "NomAml"
-        Me.NomAmlDataGridViewTextBoxColumn.HeaderText = "Nom"
-        Me.NomAmlDataGridViewTextBoxColumn.Name = "NomAmlDataGridViewTextBoxColumn"
-        Me.NomAmlDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'SexeAmlDataGridViewTextBoxColumn
-        '
-        Me.SexeAmlDataGridViewTextBoxColumn.DataPropertyName = "SexeAml"
-        Me.SexeAmlDataGridViewTextBoxColumn.HeaderText = "Sexe"
-        Me.SexeAmlDataGridViewTextBoxColumn.Name = "SexeAmlDataGridViewTextBoxColumn"
-        Me.SexeAmlDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DateNaissAmlDataGridViewTextBoxColumn
-        '
-        Me.DateNaissAmlDataGridViewTextBoxColumn.DataPropertyName = "DateNaissAml"
-        Me.DateNaissAmlDataGridViewTextBoxColumn.HeaderText = "Date de naissance"
-        Me.DateNaissAmlDataGridViewTextBoxColumn.Name = "DateNaissAmlDataGridViewTextBoxColumn"
-        Me.DateNaissAmlDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CouleurAmlDataGridViewTextBoxColumn
-        '
-        Me.CouleurAmlDataGridViewTextBoxColumn.DataPropertyName = "CouleurAml"
-        Me.CouleurAmlDataGridViewTextBoxColumn.HeaderText = "Couleur"
-        Me.CouleurAmlDataGridViewTextBoxColumn.Name = "CouleurAmlDataGridViewTextBoxColumn"
-        Me.CouleurAmlDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'EspeceIdDataGridViewTextBoxColumn
-        '
-        Me.EspeceIdDataGridViewTextBoxColumn.DataPropertyName = "EspeceId"
-        Me.EspeceIdDataGridViewTextBoxColumn.HeaderText = "EspeceId"
-        Me.EspeceIdDataGridViewTextBoxColumn.Name = "EspeceIdDataGridViewTextBoxColumn"
-        Me.EspeceIdDataGridViewTextBoxColumn.ReadOnly = True
-        Me.EspeceIdDataGridViewTextBoxColumn.Visible = False
-        '
-        'ClientIdDataGridViewTextBoxColumn
-        '
-        Me.ClientIdDataGridViewTextBoxColumn.DataPropertyName = "ClientId"
-        Me.ClientIdDataGridViewTextBoxColumn.HeaderText = "ClientId"
-        Me.ClientIdDataGridViewTextBoxColumn.Name = "ClientIdDataGridViewTextBoxColumn"
-        Me.ClientIdDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ClientIdDataGridViewTextBoxColumn.Visible = False
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(12, 87)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(215, 21)
+        Me.ComboBox1.TabIndex = 24
         '
         'FormAnimaux
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(750, 500)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label6)
@@ -264,10 +275,10 @@ Partial Class FormAnimaux
         Me.Text = "FormAnimaux"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -294,4 +305,5 @@ Partial Class FormAnimaux
     Friend WithEvents CouleurAmlDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EspeceIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ClientIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

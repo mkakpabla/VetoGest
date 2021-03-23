@@ -26,11 +26,12 @@ Partial Class FormAddAnimaux
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnEnr = New System.Windows.Forms.Button()
         Me.bsEspece = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.bsAnimal = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -40,13 +41,12 @@ Partial Class FormAddAnimaux
         Me.bsClients = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.bsAnimal = New System.Windows.Forms.BindingSource(Me.components)
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsEspece, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -82,14 +82,14 @@ Partial Class FormAddAnimaux
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'Button1
+        'btnEnr
         '
-        Me.Button1.Location = New System.Drawing.Point(365, 214)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(119, 31)
-        Me.Button1.TabIndex = 41
-        Me.Button1.Text = "Enrégistrer"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnEnr.Location = New System.Drawing.Point(365, 214)
+        Me.btnEnr.Name = "btnEnr"
+        Me.btnEnr.Size = New System.Drawing.Size(119, 31)
+        Me.btnEnr.TabIndex = 41
+        Me.btnEnr.Text = "Enrégistrer"
+        Me.btnEnr.UseVisualStyleBackColor = True
         '
         'bsEspece
         '
@@ -115,11 +115,16 @@ Partial Class FormAddAnimaux
         '
         'TextBox1
         '
+        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsAnimal, "NomAml", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBox1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(14, 82)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(225, 23)
         Me.TextBox1.TabIndex = 32
+        '
+        'bsAnimal
+        '
+        Me.bsAnimal.DataSource = GetType(VetoGest.Data.Models.Animal)
         '
         'Label1
         '
@@ -133,6 +138,8 @@ Partial Class FormAddAnimaux
         'DateTimePicker1
         '
         Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy"
+        Me.DateTimePicker1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsAnimal, "DateNaissAml", True))
+        Me.DateTimePicker1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.bsAnimal, "DateNaissAml", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DateTimePicker1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePicker1.Location = New System.Drawing.Point(14, 176)
@@ -151,6 +158,7 @@ Partial Class FormAddAnimaux
         '
         'TextBox4
         '
+        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsAnimal, "CouleurAml", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBox4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox4.Location = New System.Drawing.Point(259, 176)
         Me.TextBox4.Name = "TextBox4"
@@ -168,6 +176,7 @@ Partial Class FormAddAnimaux
         '
         'ComboBox2
         '
+        Me.ComboBox2.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.bsAnimal, "IdClt", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.ComboBox2.DataSource = Me.bsClients
         Me.ComboBox2.DisplayMember = "FullName"
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -194,10 +203,11 @@ Partial Class FormAddAnimaux
         '
         'ComboBox3
         '
+        Me.ComboBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsAnimal, "SexeAml", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"Mal", "Femelle"})
+        Me.ComboBox3.Items.AddRange(New Object() {"Male", "Femelle"})
         Me.ComboBox3.Location = New System.Drawing.Point(259, 126)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(225, 24)
@@ -205,6 +215,7 @@ Partial Class FormAddAnimaux
         '
         'ComboBox1
         '
+        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.bsAnimal, "IdEsp", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.ComboBox1.DataSource = Me.bsEspece
         Me.ComboBox1.DisplayMember = "LibEsp"
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -230,7 +241,7 @@ Partial Class FormAddAnimaux
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnEnr)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBox1)
@@ -245,8 +256,8 @@ Partial Class FormAddAnimaux
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsEspece, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsAnimal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsClients, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -255,7 +266,7 @@ Partial Class FormAddAnimaux
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label6 As Label
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnEnr As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBox1 As TextBox
