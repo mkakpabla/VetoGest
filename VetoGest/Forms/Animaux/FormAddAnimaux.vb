@@ -16,6 +16,9 @@ Public Class FormAddAnimaux
         bsAnimal.DataSource = _animal
     End Sub
 
+    Public Sub New()
+        InitializeComponent()
+    End Sub
 
     Public Sub New(ByVal animal As Animal)
         InitializeComponent()

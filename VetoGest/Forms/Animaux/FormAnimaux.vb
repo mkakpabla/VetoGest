@@ -66,4 +66,15 @@ Public Class FormAnimaux
         formAddAnimal = New FormAddAnimaux(animal)
         formAddAnimal.ShowDialog()
     End Sub
+
+    Private Sub SupprimerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SupprimerToolStripMenuItem.Click
+        Dim Result As DialogResult = MessageBox.Show("Voulez vous vraiment supprimer cet animal ?", "Suppression", MessageBoxButtons.YesNo)
+        If Result = DialogResult.Yes Then
+            Dim animal As Animal = TryCast(bsAnimal.Current, Animal)
+            If GetAnimalRepository.Delete(animal.IdAml) Then
+                MessageBox.Show("L'animal a été supprimer")
+                bsAnimal.DataSource = GetAnimalRepository.GetAll(cbxClients.SelectedValue)
+            End If
+        End If
+    End Sub
 End Class
