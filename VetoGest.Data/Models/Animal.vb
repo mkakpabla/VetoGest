@@ -25,6 +25,13 @@ Namespace Models
         <Required(ErrorMessage:="Le client est requis")>
         Public Property IdClt As Integer
 
+
+        Public ReadOnly Property Age As Integer
+            Get
+                Return 20
+            End Get
+        End Property
+
     End Class
 
 End Namespace

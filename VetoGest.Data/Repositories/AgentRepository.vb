@@ -16,11 +16,23 @@ Namespace Repositories
             End Try
         End Function
 
+        Public Function GetAllByFonc(ByVal Fonction As String) As List(Of Agent)
+            Try
+                Using Connection = GetConnection
+                    Connection.Open()
+                    Return Connection.Query(Of Agent)($"SELECT * FROM Agents WHERE FoncAgt = '{Fonction}'")
+                End Using
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+                Return Nothing
+            End Try
+        End Function
+
         Public Function GetById(Id As Integer) As Agent Implements IReposiory(Of Agent).GetById
             Try
                 Using Connection = GetConnection
                     Connection.Open()
-                    Return Connection.Query(Of Agent)($"SELECT * FROM Agents WHERE @IdAgt = {Id}")
+                    Return Connection.Query(Of Agent)($"SELECT * FROM Agents WHERE IdAgt = {Id}")
                 End Using
             Catch ex As Exception
                 Return Nothing

@@ -121,6 +121,12 @@
     <Compile Include="Forms\Clients\FormClients.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Consultations\FormAddCons.Designer.vb">
+      <DependentUpon>FormAddCons.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Consultations\FormAddCons.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Consultations\FormConsultations.Designer.vb">
       <DependentUpon>FormConsultations.vb</DependentUpon>
     </Compile>
@@ -199,6 +205,9 @@
     <EmbeddedResource Include="Forms\Clients\FormClients.resx">
       <DependentUpon>FormClients.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Consultations\FormAddCons.resx">
+      <DependentUpon>FormAddCons.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Consultations\FormConsultations.resx">
       <DependentUpon>FormConsultations.vb</DependentUpon>
     </EmbeddedResource>
@@ -235,7 +244,9 @@
     <None Include="My Project\DataSources\VetoGest.Data.Models.Agent.datasource" />
     <None Include="My Project\DataSources\VetoGest.Data.Models.Animal.datasource" />
     <None Include="My Project\DataSources\VetoGest.Data.Models.Client.datasource" />
+    <None Include="My Project\DataSources\VetoGest.Data.Models.Consultation.datasource" />
     <None Include="My Project\DataSources\VetoGest.Data.Models.Espece.datasource" />
+    <None Include="My Project\DataSources\VetoGest.Data.ViewModels.ConsultationViewModel.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

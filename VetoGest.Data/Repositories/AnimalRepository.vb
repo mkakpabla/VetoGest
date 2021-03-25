@@ -38,6 +38,17 @@ Namespace Repositories
             End Try
         End Function
 
+        Public Function GetByIdClt(Id As Integer) As List(Of Animal)
+            Try
+                Using Connection = GetConnection
+                    Connection.Open()
+                    Return Connection.Query(Of Animal)($"SELECT * FROM Animaux WHERE IdClt = {Id}")
+                End Using
+            Catch ex As Exception
+                Return Nothing
+            End Try
+        End Function
+
         Public Function Insert(obj As Animal) As Boolean Implements IReposiory(Of Animal).Insert
             Using Connection = GetConnection
                 Connection.Open()

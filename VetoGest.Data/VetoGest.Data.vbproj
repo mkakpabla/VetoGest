@@ -77,6 +77,7 @@
     <Compile Include="Models\Agent.vb" />
     <Compile Include="Models\Animal.vb" />
     <Compile Include="Models\Client.vb" />
+    <Compile Include="Models\Consultation.vb" />
     <Compile Include="Models\Espece.vb" />
     <Compile Include="ModelValidator.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -113,6 +114,7 @@
     <Compile Include="Repositories\IReposiory.vb" />
     <Compile Include="Repositories\RepositoryFactory.vb" />
     <Compile Include="Rules\Unique.vb" />
+    <Compile Include="ViewModels\ConsultationViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
