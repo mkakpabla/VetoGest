@@ -29,11 +29,20 @@ Partial Class FormConsultations
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IdConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomCompAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ObsConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RaisonConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrixConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdMedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SupprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.bsCons = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cbxAnimals = New System.Windows.Forms.ComboBox()
         Me.bsAnimals = New System.Windows.Forms.BindingSource(Me.components)
         Me.cbxClients = New System.Windows.Forms.ComboBox()
         Me.bsClients = New System.Windows.Forms.BindingSource(Me.components)
@@ -49,22 +58,13 @@ Partial Class FormConsultations
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.ConsultationViewModelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.IdConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomCompAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ObsConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RaisonConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrixConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdMedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip.SuspendLayout()
+        CType(Me.bsCons, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsAnimals, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsClients, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ConsultationViewModelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -127,6 +127,7 @@ Partial Class FormConsultations
         Me.Button1.TabIndex = 30
         Me.Button1.Text = "Imprimer"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'DataGridView1
         '
@@ -140,12 +141,73 @@ Partial Class FormConsultations
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdConsDataGridViewTextBoxColumn, Me.NomCompAgtDataGridViewTextBoxColumn, Me.DateConsDataGridViewTextBoxColumn, Me.ObsConsDataGridViewTextBoxColumn, Me.RaisonConsDataGridViewTextBoxColumn, Me.PrixConsDataGridViewTextBoxColumn, Me.IdMedDataGridViewTextBoxColumn, Me.IdAgtDataGridViewTextBoxColumn})
         Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip
-        Me.DataGridView1.DataSource = Me.ConsultationViewModelBindingSource
+        Me.DataGridView1.DataSource = Me.bsCons
         Me.DataGridView1.Location = New System.Drawing.Point(269, 84)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(469, 309)
         Me.DataGridView1.TabIndex = 29
+        '
+        'IdConsDataGridViewTextBoxColumn
+        '
+        Me.IdConsDataGridViewTextBoxColumn.DataPropertyName = "IdCons"
+        Me.IdConsDataGridViewTextBoxColumn.HeaderText = "IdCons"
+        Me.IdConsDataGridViewTextBoxColumn.Name = "IdConsDataGridViewTextBoxColumn"
+        Me.IdConsDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdConsDataGridViewTextBoxColumn.Visible = False
+        '
+        'NomCompAgtDataGridViewTextBoxColumn
+        '
+        Me.NomCompAgtDataGridViewTextBoxColumn.DataPropertyName = "NomCompAgt"
+        Me.NomCompAgtDataGridViewTextBoxColumn.HeaderText = "Médécin consultant"
+        Me.NomCompAgtDataGridViewTextBoxColumn.Name = "NomCompAgtDataGridViewTextBoxColumn"
+        Me.NomCompAgtDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DateConsDataGridViewTextBoxColumn
+        '
+        Me.DateConsDataGridViewTextBoxColumn.DataPropertyName = "DateCons"
+        Me.DateConsDataGridViewTextBoxColumn.HeaderText = "Date consultation"
+        Me.DateConsDataGridViewTextBoxColumn.Name = "DateConsDataGridViewTextBoxColumn"
+        Me.DateConsDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ObsConsDataGridViewTextBoxColumn
+        '
+        Me.ObsConsDataGridViewTextBoxColumn.DataPropertyName = "ObsCons"
+        Me.ObsConsDataGridViewTextBoxColumn.HeaderText = "ObsCons"
+        Me.ObsConsDataGridViewTextBoxColumn.Name = "ObsConsDataGridViewTextBoxColumn"
+        Me.ObsConsDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ObsConsDataGridViewTextBoxColumn.Visible = False
+        '
+        'RaisonConsDataGridViewTextBoxColumn
+        '
+        Me.RaisonConsDataGridViewTextBoxColumn.DataPropertyName = "RaisonCons"
+        Me.RaisonConsDataGridViewTextBoxColumn.HeaderText = "RaisonCons"
+        Me.RaisonConsDataGridViewTextBoxColumn.Name = "RaisonConsDataGridViewTextBoxColumn"
+        Me.RaisonConsDataGridViewTextBoxColumn.ReadOnly = True
+        Me.RaisonConsDataGridViewTextBoxColumn.Visible = False
+        '
+        'PrixConsDataGridViewTextBoxColumn
+        '
+        Me.PrixConsDataGridViewTextBoxColumn.DataPropertyName = "PrixCons"
+        Me.PrixConsDataGridViewTextBoxColumn.HeaderText = "Prix"
+        Me.PrixConsDataGridViewTextBoxColumn.Name = "PrixConsDataGridViewTextBoxColumn"
+        Me.PrixConsDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'IdMedDataGridViewTextBoxColumn
+        '
+        Me.IdMedDataGridViewTextBoxColumn.DataPropertyName = "IdMed"
+        Me.IdMedDataGridViewTextBoxColumn.HeaderText = "IdMed"
+        Me.IdMedDataGridViewTextBoxColumn.Name = "IdMedDataGridViewTextBoxColumn"
+        Me.IdMedDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdMedDataGridViewTextBoxColumn.Visible = False
+        '
+        'IdAgtDataGridViewTextBoxColumn
+        '
+        Me.IdAgtDataGridViewTextBoxColumn.DataPropertyName = "IdAgt"
+        Me.IdAgtDataGridViewTextBoxColumn.HeaderText = "IdAgt"
+        Me.IdAgtDataGridViewTextBoxColumn.Name = "IdAgtDataGridViewTextBoxColumn"
+        Me.IdAgtDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdAgtDataGridViewTextBoxColumn.Visible = False
         '
         'ContextMenuStrip
         '
@@ -171,16 +233,20 @@ Partial Class FormConsultations
         Me.ImprimerToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.ImprimerToolStripMenuItem.Text = "Imprimer"
         '
-        'ComboBox2
+        'bsCons
         '
-        Me.ComboBox2.DataSource = Me.bsAnimals
-        Me.ComboBox2.DisplayMember = "NomAml"
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(15, 140)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(225, 21)
-        Me.ComboBox2.TabIndex = 28
-        Me.ComboBox2.ValueMember = "IdAml"
+        Me.bsCons.DataSource = GetType(VetoGest.Data.ViewModels.ConsultationViewModel)
+        '
+        'cbxAnimals
+        '
+        Me.cbxAnimals.DataSource = Me.bsAnimals
+        Me.cbxAnimals.DisplayMember = "NomAml"
+        Me.cbxAnimals.FormattingEnabled = True
+        Me.cbxAnimals.Location = New System.Drawing.Point(15, 140)
+        Me.cbxAnimals.Name = "cbxAnimals"
+        Me.cbxAnimals.Size = New System.Drawing.Size(225, 21)
+        Me.cbxAnimals.TabIndex = 28
+        Me.cbxAnimals.ValueMember = "IdAml"
         '
         'bsAnimals
         '
@@ -304,71 +370,6 @@ Partial Class FormConsultations
         Me.Label8.TabIndex = 40
         Me.Label8.Text = "Couleur de l'animal"
         '
-        'ConsultationViewModelBindingSource
-        '
-        Me.ConsultationViewModelBindingSource.DataSource = GetType(VetoGest.Data.ViewModels.ConsultationViewModel)
-        '
-        'IdConsDataGridViewTextBoxColumn
-        '
-        Me.IdConsDataGridViewTextBoxColumn.DataPropertyName = "IdCons"
-        Me.IdConsDataGridViewTextBoxColumn.HeaderText = "IdCons"
-        Me.IdConsDataGridViewTextBoxColumn.Name = "IdConsDataGridViewTextBoxColumn"
-        Me.IdConsDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdConsDataGridViewTextBoxColumn.Visible = False
-        '
-        'NomCompAgtDataGridViewTextBoxColumn
-        '
-        Me.NomCompAgtDataGridViewTextBoxColumn.DataPropertyName = "NomCompAgt"
-        Me.NomCompAgtDataGridViewTextBoxColumn.HeaderText = "Médécin consultant"
-        Me.NomCompAgtDataGridViewTextBoxColumn.Name = "NomCompAgtDataGridViewTextBoxColumn"
-        Me.NomCompAgtDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DateConsDataGridViewTextBoxColumn
-        '
-        Me.DateConsDataGridViewTextBoxColumn.DataPropertyName = "DateCons"
-        Me.DateConsDataGridViewTextBoxColumn.HeaderText = "Date consultation"
-        Me.DateConsDataGridViewTextBoxColumn.Name = "DateConsDataGridViewTextBoxColumn"
-        Me.DateConsDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ObsConsDataGridViewTextBoxColumn
-        '
-        Me.ObsConsDataGridViewTextBoxColumn.DataPropertyName = "ObsCons"
-        Me.ObsConsDataGridViewTextBoxColumn.HeaderText = "ObsCons"
-        Me.ObsConsDataGridViewTextBoxColumn.Name = "ObsConsDataGridViewTextBoxColumn"
-        Me.ObsConsDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ObsConsDataGridViewTextBoxColumn.Visible = False
-        '
-        'RaisonConsDataGridViewTextBoxColumn
-        '
-        Me.RaisonConsDataGridViewTextBoxColumn.DataPropertyName = "RaisonCons"
-        Me.RaisonConsDataGridViewTextBoxColumn.HeaderText = "RaisonCons"
-        Me.RaisonConsDataGridViewTextBoxColumn.Name = "RaisonConsDataGridViewTextBoxColumn"
-        Me.RaisonConsDataGridViewTextBoxColumn.ReadOnly = True
-        Me.RaisonConsDataGridViewTextBoxColumn.Visible = False
-        '
-        'PrixConsDataGridViewTextBoxColumn
-        '
-        Me.PrixConsDataGridViewTextBoxColumn.DataPropertyName = "PrixCons"
-        Me.PrixConsDataGridViewTextBoxColumn.HeaderText = "Prix"
-        Me.PrixConsDataGridViewTextBoxColumn.Name = "PrixConsDataGridViewTextBoxColumn"
-        Me.PrixConsDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'IdMedDataGridViewTextBoxColumn
-        '
-        Me.IdMedDataGridViewTextBoxColumn.DataPropertyName = "IdMed"
-        Me.IdMedDataGridViewTextBoxColumn.HeaderText = "IdMed"
-        Me.IdMedDataGridViewTextBoxColumn.Name = "IdMedDataGridViewTextBoxColumn"
-        Me.IdMedDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdMedDataGridViewTextBoxColumn.Visible = False
-        '
-        'IdAgtDataGridViewTextBoxColumn
-        '
-        Me.IdAgtDataGridViewTextBoxColumn.DataPropertyName = "IdAgt"
-        Me.IdAgtDataGridViewTextBoxColumn.HeaderText = "IdAgt"
-        Me.IdAgtDataGridViewTextBoxColumn.Name = "IdAgtDataGridViewTextBoxColumn"
-        Me.IdAgtDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdAgtDataGridViewTextBoxColumn.Visible = False
-        '
         'FormConsultations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -386,7 +387,7 @@ Partial Class FormConsultations
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.cbxAnimals)
         Me.Controls.Add(Me.cbxClients)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label3)
@@ -399,9 +400,9 @@ Partial Class FormConsultations
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip.ResumeLayout(False)
+        CType(Me.bsCons, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsAnimals, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsClients, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ConsultationViewModelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -411,7 +412,7 @@ Partial Class FormConsultations
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Button1 As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents cbxAnimals As ComboBox
     Friend WithEvents cbxClients As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -440,5 +441,5 @@ Partial Class FormConsultations
     Friend WithEvents PrixConsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdMedDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdAgtDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ConsultationViewModelBindingSource As BindingSource
+    Friend WithEvents bsCons As BindingSource
 End Class

@@ -22,6 +22,12 @@ Public Module RepositoryFactory
         End Get
     End Property
 
+    Public ReadOnly Property GetConsultationRepository As ConsultationRepository
+        Get
+            Return New ConsultationRepository()
+        End Get
+    End Property
+
     Public ReadOnly Property GetAnimalRepository As AnimalRepository
         Get
             Return New AnimalRepository()

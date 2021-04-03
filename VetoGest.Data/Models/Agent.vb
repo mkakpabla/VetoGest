@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel.DataAnnotations
+Imports VetoGest.Data.Rules
 
 Namespace Models
     Public Class Agent
@@ -22,8 +23,11 @@ Namespace Models
         <Required(ErrorMessage:="La fonction est requis")>
         Public Property FoncAgt As String
 
+        <Required(ErrorMessage:="Le login est requis")>
+        <Unique(ColumnName:="LoginAgt", TableName:="Agents", AdditionalFields:="IdAgt", ErrorMessage:="Le login doit être unique")>
         Public Property LoginAgt As String
 
+        <Required(ErrorMessage:="Le mot de passe est requis")>
         Public Property MdpAgt As String
 
     End Class

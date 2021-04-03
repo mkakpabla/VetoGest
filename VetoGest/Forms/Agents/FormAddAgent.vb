@@ -29,20 +29,20 @@ Public Class FormAddAgent
 
             For Each err As ValidationResult In errors
                 MessageBox.Show(err.ErrorMessage)
-                Select Case err.MemberNames.First
-                    Case "NomCompAgt"
-                        txtNom.Focus()
-                    Case "TelAgt"
-                        txtTel.Focus()
-                    Case "AdrAgt"
-                        txtAdr.Focus()
-                    Case "FoncAgt"
-                        cbxFoncAgt.Focus()
-                    Case "LoginAgt"
-                        txtLogin.Focus()
-                    Case "MdpAgt"
-                        txtMdp.Focus()
-                End Select
+                'Select Case err.MemberNames.First
+                '    Case "NomCompAgt"
+                '        txtNom.Focus()
+                '    Case "TelAgt"
+                '        txtTel.Focus()
+                '    Case "AdrAgt"
+                '        txtAdr.Focus()
+                '    Case "FoncAgt"
+                '        cbxFoncAgt.Focus()
+                '    Case "LoginAgt"
+                '        txtLogin.Focus()
+                '    Case "MdpAgt"
+                '        txtMdp.Focus()
+                'End Select
                 Return
             Next
         Else

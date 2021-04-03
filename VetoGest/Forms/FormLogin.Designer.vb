@@ -24,16 +24,16 @@ Partial Class FormLogin
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlLogin = New System.Windows.Forms.Panel()
+        Me.liblExit = New System.Windows.Forms.LinkLabel()
         Me.lblTest = New System.Windows.Forms.Label()
         Me.btnLogin = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtMdp = New System.Windows.Forms.TextBox()
         Me.lblMdp = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtLogin = New System.Windows.Forms.TextBox()
         Me.lblLogin = New System.Windows.Forms.Label()
         Me.lblSlogan = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.liblExit = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.pnlLogin.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,14 +58,26 @@ Partial Class FormLogin
         Me.pnlLogin.Controls.Add(Me.liblExit)
         Me.pnlLogin.Controls.Add(Me.lblTest)
         Me.pnlLogin.Controls.Add(Me.btnLogin)
-        Me.pnlLogin.Controls.Add(Me.TextBox2)
+        Me.pnlLogin.Controls.Add(Me.txtMdp)
         Me.pnlLogin.Controls.Add(Me.lblMdp)
-        Me.pnlLogin.Controls.Add(Me.TextBox1)
+        Me.pnlLogin.Controls.Add(Me.txtLogin)
         Me.pnlLogin.Controls.Add(Me.lblLogin)
         Me.pnlLogin.Location = New System.Drawing.Point(328, 28)
         Me.pnlLogin.Name = "pnlLogin"
         Me.pnlLogin.Size = New System.Drawing.Size(314, 304)
         Me.pnlLogin.TabIndex = 4
+        '
+        'liblExit
+        '
+        Me.liblExit.AutoSize = True
+        Me.liblExit.ForeColor = System.Drawing.Color.White
+        Me.liblExit.LinkColor = System.Drawing.Color.White
+        Me.liblExit.Location = New System.Drawing.Point(138, 282)
+        Me.liblExit.Name = "liblExit"
+        Me.liblExit.Size = New System.Drawing.Size(38, 13)
+        Me.liblExit.TabIndex = 6
+        Me.liblExit.TabStop = True
+        Me.liblExit.Text = "Quitter"
         '
         'lblTest
         '
@@ -93,13 +105,14 @@ Partial Class FormLogin
         Me.btnLogin.Text = "Se Connecter"
         Me.btnLogin.UseVisualStyleBackColor = False
         '
-        'TextBox2
+        'txtMdp
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(30, 176)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(252, 23)
-        Me.TextBox2.TabIndex = 3
+        Me.txtMdp.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMdp.Location = New System.Drawing.Point(30, 176)
+        Me.txtMdp.Name = "txtMdp"
+        Me.txtMdp.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtMdp.Size = New System.Drawing.Size(252, 23)
+        Me.txtMdp.TabIndex = 3
         '
         'lblMdp
         '
@@ -112,13 +125,13 @@ Partial Class FormLogin
         Me.lblMdp.TabIndex = 2
         Me.lblMdp.Text = "Mot de passe"
         '
-        'TextBox1
+        'txtLogin
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(30, 118)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(252, 23)
-        Me.TextBox1.TabIndex = 1
+        Me.txtLogin.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLogin.Location = New System.Drawing.Point(30, 118)
+        Me.txtLogin.Name = "txtLogin"
+        Me.txtLogin.Size = New System.Drawing.Size(252, 23)
+        Me.txtLogin.TabIndex = 1
         '
         'lblLogin
         '
@@ -165,18 +178,6 @@ Partial Class FormLogin
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'liblExit
-        '
-        Me.liblExit.AutoSize = True
-        Me.liblExit.ForeColor = System.Drawing.Color.White
-        Me.liblExit.LinkColor = System.Drawing.Color.White
-        Me.liblExit.Location = New System.Drawing.Point(138, 282)
-        Me.liblExit.Name = "liblExit"
-        Me.liblExit.Size = New System.Drawing.Size(38, 13)
-        Me.liblExit.TabIndex = 6
-        Me.liblExit.TabStop = True
-        Me.liblExit.Text = "Quitter"
-        '
         'FormLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -201,9 +202,9 @@ Partial Class FormLogin
     Friend WithEvents pnlLogin As Panel
     Friend WithEvents lblTest As Label
     Friend WithEvents btnLogin As Button
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtMdp As TextBox
     Friend WithEvents lblMdp As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtLogin As TextBox
     Friend WithEvents lblLogin As Label
     Friend WithEvents lblSlogan As Label
     Friend WithEvents lblName As Label

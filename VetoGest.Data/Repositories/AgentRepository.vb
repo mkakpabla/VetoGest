@@ -86,5 +86,17 @@ Namespace Repositories
         Private Function IReposiory_Search(ColomnName As String, SearchValue As String) As List(Of Agent) Implements IReposiory(Of Agent).Search
             Throw New NotImplementedException()
         End Function
+
+        Public Function Login(ByVal Username As String) As Agent
+
+            Try
+                Using Connection = GetConnection
+                    Connection.Open()
+                    Return Connection.QueryFirst(Of Agent)($"SELECT * FROM Agents WHERE LoginAgt = '{Username}'")
+                End Using
+            Catch ex As Exception
+                Return Nothing
+            End Try
+        End Function
     End Class
 End Namespace

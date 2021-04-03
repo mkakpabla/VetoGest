@@ -27,16 +27,16 @@ Partial Class FormAddCons
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbxMed = New System.Windows.Forms.ComboBox()
         Me.bsAgents = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.textRaisonCons = New System.Windows.Forms.TextBox()
         Me.bsCons = New System.Windows.Forms.BindingSource(Me.components)
+        Me.txtObsCons = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnEnr = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtPrixCons = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsAgents, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,17 +85,18 @@ Partial Class FormAddCons
         Me.Label1.TabIndex = 32
         Me.Label1.Text = "Médecin"
         '
-        'ComboBox1
+        'cbxMed
         '
-        Me.ComboBox1.DataSource = Me.bsAgents
-        Me.ComboBox1.DisplayMember = "NomCompAgt"
-        Me.ComboBox1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(15, 100)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(281, 25)
-        Me.ComboBox1.TabIndex = 33
-        Me.ComboBox1.ValueMember = "IdAgt"
+        Me.cbxMed.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.bsCons, "IdMed", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbxMed.DataSource = Me.bsAgents
+        Me.cbxMed.DisplayMember = "NomCompAgt"
+        Me.cbxMed.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxMed.FormattingEnabled = True
+        Me.cbxMed.Location = New System.Drawing.Point(15, 100)
+        Me.cbxMed.Name = "cbxMed"
+        Me.cbxMed.Size = New System.Drawing.Size(281, 25)
+        Me.cbxMed.TabIndex = 33
+        Me.cbxMed.ValueMember = "IdAgt"
         '
         'bsAgents
         '
@@ -110,23 +111,27 @@ Partial Class FormAddCons
         Me.Label2.TabIndex = 34
         Me.Label2.Text = "Raison"
         '
-        'TextBox1
+        'textRaisonCons
         '
-        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsCons, "RaisonCons", True))
-        Me.TextBox1.Location = New System.Drawing.Point(15, 151)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(281, 52)
-        Me.TextBox1.TabIndex = 35
+        Me.textRaisonCons.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsCons, "RaisonCons", True))
+        Me.textRaisonCons.Location = New System.Drawing.Point(15, 151)
+        Me.textRaisonCons.Multiline = True
+        Me.textRaisonCons.Name = "textRaisonCons"
+        Me.textRaisonCons.Size = New System.Drawing.Size(281, 52)
+        Me.textRaisonCons.TabIndex = 35
         '
-        'TextBox2
+        'bsCons
         '
-        Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsCons, "ObsCons", True))
-        Me.TextBox2.Location = New System.Drawing.Point(15, 224)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(281, 101)
-        Me.TextBox2.TabIndex = 37
+        Me.bsCons.DataSource = GetType(VetoGest.Data.Models.Consultation)
+        '
+        'txtObsCons
+        '
+        Me.txtObsCons.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsCons, "ObsCons", True))
+        Me.txtObsCons.Location = New System.Drawing.Point(15, 224)
+        Me.txtObsCons.Multiline = True
+        Me.txtObsCons.Name = "txtObsCons"
+        Me.txtObsCons.Size = New System.Drawing.Size(281, 101)
+        Me.txtObsCons.TabIndex = 37
         '
         'Label3
         '
@@ -137,18 +142,14 @@ Partial Class FormAddCons
         Me.Label3.TabIndex = 36
         Me.Label3.Text = "Observation"
         '
-        'Button1
+        'btnEnr
         '
-        Me.Button1.Location = New System.Drawing.Point(15, 383)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(281, 34)
-        Me.Button1.TabIndex = 38
-        Me.Button1.Text = "Enrégistrer et Imprimer"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'bsCons
-        '
-        Me.bsCons.DataSource = GetType(VetoGest.Data.Models.Consultation)
+        Me.btnEnr.Location = New System.Drawing.Point(15, 383)
+        Me.btnEnr.Name = "btnEnr"
+        Me.btnEnr.Size = New System.Drawing.Size(281, 34)
+        Me.btnEnr.TabIndex = 38
+        Me.btnEnr.Text = "Enrégistrer et Imprimer"
+        Me.btnEnr.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -159,28 +160,28 @@ Partial Class FormAddCons
         Me.Label4.TabIndex = 39
         Me.Label4.Text = "Prix"
         '
-        'TextBox3
+        'txtPrixCons
         '
-        Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsCons, "PrixCons", True))
-        Me.TextBox3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(15, 344)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(281, 23)
-        Me.TextBox3.TabIndex = 40
+        Me.txtPrixCons.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.bsCons, "PrixCons", True))
+        Me.txtPrixCons.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrixCons.Location = New System.Drawing.Point(15, 344)
+        Me.txtPrixCons.Name = "txtPrixCons"
+        Me.txtPrixCons.Size = New System.Drawing.Size(281, 23)
+        Me.txtPrixCons.TabIndex = 40
         '
         'FormAddCons
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(309, 438)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.txtPrixCons)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.btnEnr)
+        Me.Controls.Add(Me.txtObsCons)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.textRaisonCons)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cbxMed)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.MaximizeBox = False
@@ -202,14 +203,14 @@ Partial Class FormAddCons
     Friend WithEvents lblTitle As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbxMed As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents textRaisonCons As TextBox
+    Friend WithEvents txtObsCons As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnEnr As Button
     Friend WithEvents bsAgents As BindingSource
     Friend WithEvents bsCons As BindingSource
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtPrixCons As TextBox
 End Class
