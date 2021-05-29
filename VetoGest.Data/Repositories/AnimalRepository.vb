@@ -38,6 +38,18 @@ Namespace Repositories
             End Try
         End Function
 
+        Public Function GetAllInfo(Id As Integer) As AnimalInfo
+            Try
+                Using Connection = GetConnection
+                    Connection.Open()
+                    Return Connection.QueryFirstOrDefault(Of AnimalInfo)($"SELECT * FROM Animaux a, Clients c, Especes e WHERE a.IdClt = c.IdClt AND a.IdEsp = e.IdEsp AND IdAml = {Id}")
+                End Using
+            Catch ex As Exception
+
+            End Try
+            Return Nothing
+        End Function
+
         Public Function GetByIdClt(Id As Integer) As List(Of Animal)
             Try
                 Using Connection = GetConnection
@@ -87,5 +99,6 @@ Namespace Repositories
         Public Function Search(ColomnName As String, SearchValue As String) As List(Of Animal) Implements IReposiory(Of Animal).Search
             Throw New NotImplementedException()
         End Function
+
     End Class
 End Namespace

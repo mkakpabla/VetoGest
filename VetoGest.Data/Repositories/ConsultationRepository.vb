@@ -24,7 +24,7 @@ Namespace Repositories
         Public Function Insert(obj As Consultation) As Boolean Implements IReposiory(Of Consultation).Insert
             Using Connection = GetConnection
                 Connection.Open()
-                Dim Query As String = "INSERT INTO Consultations(DateCons, ObsCons, RaisonCons, PrixCons, IdMed, IdAgt, IdAml) VALUES(@DateCons, @ObsCons, @RaisonCons, @PrixCons, @IdMed, @IdAgt, @IdAml)"
+                Dim Query As String = "INSERT INTO Consultations(DateCons, ObsCons, RaisonCons, PrixCons, IdAgt, IdAml) VALUES(@DateCons, @ObsCons, @RaisonCons, @PrixCons, @IdAgt, @IdAml)"
                 Return Connection.Execute(Query, obj)
             End Using
 

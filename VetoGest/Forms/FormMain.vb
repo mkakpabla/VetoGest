@@ -19,7 +19,7 @@
     End Sub
 
     Private Sub btnConsultation_Click(sender As Object, e As EventArgs) Handles btnConsultation.Click
-        AddToPanel(FormConsultations)
+        AddToPanel(frmListeConsultations)
     End Sub
 
     Private Sub btnAccueil_Click(sender As Object, e As EventArgs) Handles btnAccueil.Click

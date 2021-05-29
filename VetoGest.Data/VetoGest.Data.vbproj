@@ -76,6 +76,7 @@
     <Compile Include="Db.vb" />
     <Compile Include="Models\Agent.vb" />
     <Compile Include="Models\Animal.vb" />
+    <Compile Include="Models\AnimalInfo.vb" />
     <Compile Include="Models\Client.vb" />
     <Compile Include="Models\Consultation.vb" />
     <Compile Include="Models\Espece.vb" />
