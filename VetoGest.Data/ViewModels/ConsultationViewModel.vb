@@ -7,6 +7,10 @@ Namespace ViewModels
 
         Public Property NomCompAgt As String
 
+        Public Property TelAgt As String
+
+        Public Property AdrAgt As String
+
         Public Property NomAml As String
 
         Public Property SexeAml As String

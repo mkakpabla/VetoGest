@@ -34,7 +34,7 @@ Partial Class FormPrint
         Me.crpPrint.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.crpPrint.Location = New System.Drawing.Point(0, 0)
         Me.crpPrint.Name = "crpPrint"
-        Me.crpPrint.Size = New System.Drawing.Size(800, 450)
+        Me.crpPrint.Size = New System.Drawing.Size(873, 511)
         Me.crpPrint.TabIndex = 0
         Me.crpPrint.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
@@ -42,9 +42,10 @@ Partial Class FormPrint
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(873, 511)
         Me.Controls.Add(Me.crpPrint)
         Me.Name = "FormPrint"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormPrint"
         Me.ResumeLayout(False)
 

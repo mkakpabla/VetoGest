@@ -24,12 +24,6 @@ Partial Class frmListeConsultations
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.dgvListeConsultation = New System.Windows.Forms.DataGridView()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnNouveau = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.NomAmlDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FullNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomCompAgtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,10 +32,18 @@ Partial Class frmListeConsultations
         Me.RaisonConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PrixConsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bsConsultations = New System.Windows.Forms.BindingSource(Me.components)
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnNouveau = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnPrintFiche = New System.Windows.Forms.Button()
         CType(Me.dgvListeConsultation, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsConsultations, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.bsConsultations, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvListeConsultation
@@ -58,8 +60,55 @@ Partial Class frmListeConsultations
         Me.dgvListeConsultation.MultiSelect = False
         Me.dgvListeConsultation.Name = "dgvListeConsultation"
         Me.dgvListeConsultation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvListeConsultation.Size = New System.Drawing.Size(861, 375)
+        Me.dgvListeConsultation.Size = New System.Drawing.Size(861, 333)
         Me.dgvListeConsultation.TabIndex = 0
+        '
+        'NomAmlDataGridViewTextBoxColumn
+        '
+        Me.NomAmlDataGridViewTextBoxColumn.DataPropertyName = "NomAml"
+        Me.NomAmlDataGridViewTextBoxColumn.HeaderText = "Animal"
+        Me.NomAmlDataGridViewTextBoxColumn.Name = "NomAmlDataGridViewTextBoxColumn"
+        '
+        'FullNameDataGridViewTextBoxColumn
+        '
+        Me.FullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName"
+        Me.FullNameDataGridViewTextBoxColumn.HeaderText = "Propiétaire"
+        Me.FullNameDataGridViewTextBoxColumn.Name = "FullNameDataGridViewTextBoxColumn"
+        Me.FullNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'NomCompAgtDataGridViewTextBoxColumn
+        '
+        Me.NomCompAgtDataGridViewTextBoxColumn.DataPropertyName = "NomCompAgt"
+        Me.NomCompAgtDataGridViewTextBoxColumn.HeaderText = "Médécin"
+        Me.NomCompAgtDataGridViewTextBoxColumn.Name = "NomCompAgtDataGridViewTextBoxColumn"
+        '
+        'DateConsDataGridViewTextBoxColumn
+        '
+        Me.DateConsDataGridViewTextBoxColumn.DataPropertyName = "DateCons"
+        Me.DateConsDataGridViewTextBoxColumn.HeaderText = "Date"
+        Me.DateConsDataGridViewTextBoxColumn.Name = "DateConsDataGridViewTextBoxColumn"
+        '
+        'ObsConsDataGridViewTextBoxColumn
+        '
+        Me.ObsConsDataGridViewTextBoxColumn.DataPropertyName = "ObsCons"
+        Me.ObsConsDataGridViewTextBoxColumn.HeaderText = "Obsservation"
+        Me.ObsConsDataGridViewTextBoxColumn.Name = "ObsConsDataGridViewTextBoxColumn"
+        '
+        'RaisonConsDataGridViewTextBoxColumn
+        '
+        Me.RaisonConsDataGridViewTextBoxColumn.DataPropertyName = "RaisonCons"
+        Me.RaisonConsDataGridViewTextBoxColumn.HeaderText = "Raison"
+        Me.RaisonConsDataGridViewTextBoxColumn.Name = "RaisonConsDataGridViewTextBoxColumn"
+        '
+        'PrixConsDataGridViewTextBoxColumn
+        '
+        Me.PrixConsDataGridViewTextBoxColumn.DataPropertyName = "PrixCons"
+        Me.PrixConsDataGridViewTextBoxColumn.HeaderText = "Prix"
+        Me.PrixConsDataGridViewTextBoxColumn.Name = "PrixConsDataGridViewTextBoxColumn"
+        '
+        'bsConsultations
+        '
+        Me.bsConsultations.DataSource = GetType(VetoGest.Data.ViewModels.ConsultationViewModel)
         '
         'txtSearch
         '
@@ -109,15 +158,6 @@ Partial Class frmListeConsultations
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Consultations"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 91)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 13)
-        Me.Label2.TabIndex = 26
-        Me.Label2.Text = "Recherche:"
-        '
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
@@ -129,58 +169,42 @@ Partial Class frmListeConsultations
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'NomAmlDataGridViewTextBoxColumn
+        'Label2
         '
-        Me.NomAmlDataGridViewTextBoxColumn.DataPropertyName = "NomAml"
-        Me.NomAmlDataGridViewTextBoxColumn.HeaderText = "Animal"
-        Me.NomAmlDataGridViewTextBoxColumn.Name = "NomAmlDataGridViewTextBoxColumn"
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 91)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
+        Me.Label2.TabIndex = 26
+        Me.Label2.Text = "Recherche:"
         '
-        'FullNameDataGridViewTextBoxColumn
+        'Button1
         '
-        Me.FullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName"
-        Me.FullNameDataGridViewTextBoxColumn.HeaderText = "Propiétaire"
-        Me.FullNameDataGridViewTextBoxColumn.Name = "FullNameDataGridViewTextBoxColumn"
-        Me.FullNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(12, 453)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(101, 23)
+        Me.Button1.TabIndex = 27
+        Me.Button1.Text = "Supprimer"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'NomCompAgtDataGridViewTextBoxColumn
+        'btnPrintFiche
         '
-        Me.NomCompAgtDataGridViewTextBoxColumn.DataPropertyName = "NomCompAgt"
-        Me.NomCompAgtDataGridViewTextBoxColumn.HeaderText = "Médécin"
-        Me.NomCompAgtDataGridViewTextBoxColumn.Name = "NomCompAgtDataGridViewTextBoxColumn"
-        '
-        'DateConsDataGridViewTextBoxColumn
-        '
-        Me.DateConsDataGridViewTextBoxColumn.DataPropertyName = "DateCons"
-        Me.DateConsDataGridViewTextBoxColumn.HeaderText = "Date"
-        Me.DateConsDataGridViewTextBoxColumn.Name = "DateConsDataGridViewTextBoxColumn"
-        '
-        'ObsConsDataGridViewTextBoxColumn
-        '
-        Me.ObsConsDataGridViewTextBoxColumn.DataPropertyName = "ObsCons"
-        Me.ObsConsDataGridViewTextBoxColumn.HeaderText = "Obsservation"
-        Me.ObsConsDataGridViewTextBoxColumn.Name = "ObsConsDataGridViewTextBoxColumn"
-        '
-        'RaisonConsDataGridViewTextBoxColumn
-        '
-        Me.RaisonConsDataGridViewTextBoxColumn.DataPropertyName = "RaisonCons"
-        Me.RaisonConsDataGridViewTextBoxColumn.HeaderText = "Raison"
-        Me.RaisonConsDataGridViewTextBoxColumn.Name = "RaisonConsDataGridViewTextBoxColumn"
-        '
-        'PrixConsDataGridViewTextBoxColumn
-        '
-        Me.PrixConsDataGridViewTextBoxColumn.DataPropertyName = "PrixCons"
-        Me.PrixConsDataGridViewTextBoxColumn.HeaderText = "Prix"
-        Me.PrixConsDataGridViewTextBoxColumn.Name = "PrixConsDataGridViewTextBoxColumn"
-        '
-        'bsConsultations
-        '
-        Me.bsConsultations.DataSource = GetType(VetoGest.Data.ViewModels.ConsultationViewModel)
+        Me.btnPrintFiche.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnPrintFiche.Location = New System.Drawing.Point(119, 453)
+        Me.btnPrintFiche.Name = "btnPrintFiche"
+        Me.btnPrintFiche.Size = New System.Drawing.Size(181, 23)
+        Me.btnPrintFiche.TabIndex = 28
+        Me.btnPrintFiche.Text = "Imprimer la fiche de consulation"
+        Me.btnPrintFiche.UseVisualStyleBackColor = True
         '
         'frmListeConsultations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(885, 501)
+        Me.Controls.Add(Me.btnPrintFiche)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.txtSearch)
@@ -189,10 +213,10 @@ Partial Class frmListeConsultations
         Me.Name = "frmListeConsultations"
         Me.Text = "frmListeConsultations"
         CType(Me.dgvListeConsultation, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsConsultations, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.bsConsultations, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -213,4 +237,6 @@ Partial Class frmListeConsultations
     Friend WithEvents ObsConsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents RaisonConsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PrixConsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnPrintFiche As Button
 End Class

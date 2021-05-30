@@ -60,9 +60,9 @@ Public Class FormAgent
     End Sub
 
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
-        Dim ReportAgent As ReportAgent = New ReportAgent()
-        ReportAgent.SetDataSource(bsAgents)
-        FormPrint.crpPrint.ReportSource = ReportAgent
+        Dim RAgent As ReportAgent = New ReportAgent()
+        RAgent.SetDataSource(bsAgents)
+        FormPrint.crpPrint.ReportSource = RAgent
         FormPrint.crpPrint.RefreshReport()
         FormPrint.ShowDialog()
     End Sub
